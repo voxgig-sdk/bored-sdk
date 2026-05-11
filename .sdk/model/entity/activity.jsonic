@@ -1,0 +1,156 @@
+# Entity: activity
+
+main: kit: entity: activity: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "accessibility"
+      req: true
+      type: "`$NUMBER`"
+    }
+    {
+      name: "activity"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "key"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "link"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "participant"
+      req: true
+      type: "`$INTEGER`"
+    }
+    {
+      name: "price"
+      req: true
+      type: "`$NUMBER`"
+    }
+    {
+      name: "type"
+      req: true
+      type: "`$STRING`"
+    }
+  ]
+
+  name: "activity"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          args: {
+            query: [
+              {
+                kind: "query"
+                name: "maxaccessibility"
+                orig: "maxaccessibility"
+                reqd: false
+                type: "`$NUMBER`"
+              }
+              {
+                kind: "query"
+                name: "maxprice"
+                orig: "maxprice"
+                reqd: false
+                type: "`$NUMBER`"
+              }
+              {
+                kind: "query"
+                name: "minaccessibility"
+                orig: "minaccessibility"
+                reqd: false
+                type: "`$NUMBER`"
+              }
+              {
+                kind: "query"
+                name: "minprice"
+                orig: "minprice"
+                reqd: false
+                type: "`$NUMBER`"
+              }
+              {
+                kind: "query"
+                name: "participant"
+                orig: "participant"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "query"
+                name: "type"
+                orig: "type"
+                reqd: false
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/activity"
+          parts: [
+            "activity"
+          ]
+          select: {
+            exist: [
+              "maxaccessibility"
+              "maxprice"
+              "minaccessibility"
+              "minprice"
+              "participant"
+              "type"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "id"
+                orig: "key"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/activity/{key}"
+          parts: [
+            "activity"
+            "{id}"
+          ]
+          rename: {
+            param: {
+              key: "id"
+            }
+          }
+          select: {
+            exist: [
+              "id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

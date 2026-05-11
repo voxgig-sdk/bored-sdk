@@ -1,0 +1,23 @@
+# API Information
+
+
+main: {
+  kit: {
+    info: {
+      contact: {
+        url: "https://www.boredapi.com/api/"
+      }
+      description: "Get random activities based on type, participants, price, and accessibility ranges."
+      servers: [
+        {
+          description: "Production server"
+          url: "https://www.boredapi.com/api"
+        }
+      ]
+      title: "Bored API"
+      version: "1.0.0"
+    }
+  }
+}
+
+}

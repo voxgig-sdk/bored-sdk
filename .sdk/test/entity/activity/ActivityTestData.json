@@ -1,0 +1,46 @@
+{
+  "existing": {
+    "activity": {
+      "ACTIVITY00": {
+        "accessibility": 70,
+        "activity": "s47",
+        "key": "s48",
+        "link": "s49",
+        "participant": "s4a",
+        "price": 75,
+        "type": "s4c"
+      },
+      "ACTIVITY01": {
+        "accessibility": 140,
+        "activity": "s8d",
+        "key": "s8e",
+        "link": "s8f",
+        "participant": "s90",
+        "price": 145,
+        "type": "s92"
+      },
+      "ACTIVITY02": {
+        "accessibility": 210,
+        "activity": "sd3",
+        "key": "sd4",
+        "link": "sd5",
+        "participant": "sd6",
+        "price": 215,
+        "type": "sd8"
+      }
+    }
+  },
+  "new": {
+    "activity": {
+      "activity_ref01": {
+        "accessibility": 280,
+        "activity": "s119",
+        "key": "s11a",
+        "link": "s11b",
+        "participant": "s11c",
+        "price": 285,
+        "type": "s11e"
+      }
+    }
+  }
+}

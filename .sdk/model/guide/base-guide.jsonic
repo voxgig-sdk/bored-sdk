@@ -1,0 +1,20 @@
+# Guide
+
+guide: {
+  metrics: count: entity: 1
+  metrics: count: path: 2
+  metrics: count: method: 2
+
+  entity: activity: {
+    path: "/activity": {
+      op: load: method: *GET
+      op: load: transform: res: *("`body.activity`")|top
+    }
+    path: "/activity/{key}": {
+      rename: param: "key": *"id"
+      op: load: method: *GET
+      op: load: transform: res: *("`body.activity`")|top
+    }
+  }
+
+}

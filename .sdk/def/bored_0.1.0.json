@@ -1,0 +1,253 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Bored API",
+    "description": "Get random activities based on type, participants, price, and accessibility ranges.",
+    "version": "1.0.0",
+    "contact": {
+      "url": "https://www.boredapi.com/api/"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://www.boredapi.com/api",
+      "description": "Production server"
+    }
+  ],
+  "paths": {
+    "/activity": {
+      "get": {
+        "summary": "Get a random activity",
+        "description": "Returns a random activity. Can be filtered by type, participants, price range, and accessibility range.",
+        "operationId": "getRandomActivity",
+        "parameters": [
+          {
+            "name": "type",
+            "in": "query",
+            "description": "Type of activity (education, recreational, social, diy, charity, cooking, relaxation, music, busywork)",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "education",
+                "recreational",
+                "social",
+                "diy",
+                "charity",
+                "cooking",
+                "relaxation",
+                "music",
+                "busywork"
+              ]
+            }
+          },
+          {
+            "name": "participants",
+            "in": "query",
+            "description": "Number of participants for the activity",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 1
+            }
+          },
+          {
+            "name": "minprice",
+            "in": "query",
+            "description": "Minimum price (0.0 to 1.0)",
+            "required": false,
+            "schema": {
+              "type": "number",
+              "format": "double",
+              "minimum": 0,
+              "maximum": 1
+            }
+          },
+          {
+            "name": "maxprice",
+            "in": "query",
+            "description": "Maximum price (0.0 to 1.0)",
+            "required": false,
+            "schema": {
+              "type": "number",
+              "format": "double",
+              "minimum": 0,
+              "maximum": 1
+            }
+          },
+          {
+            "name": "minaccessibility",
+            "in": "query",
+            "description": "Minimum accessibility (0.0 to 1.0)",
+            "required": false,
+            "schema": {
+              "type": "number",
+              "format": "double",
+              "minimum": 0,
+              "maximum": 1
+            }
+          },
+          {
+            "name": "maxaccessibility",
+            "in": "query",
+            "description": "Maximum accessibility (0.0 to 1.0)",
+            "required": false,
+            "schema": {
+              "type": "number",
+              "format": "double",
+              "minimum": 0,
+              "maximum": 1
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully returned a random activity",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Activity"
+                },
+                "example": {
+                  "activity": "Learn how to french braid hair",
+                  "type": "education",
+                  "participants": 1,
+                  "price": 0,
+                  "link": "",
+                  "key": "4387026",
+                  "accessibility": 0.1
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "No activity found with the specified parameters",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/activity/{key}": {
+      "get": {
+        "summary": "Get activity by key",
+        "description": "Returns a specific activity by its unique key identifier",
+        "operationId": "getActivityByKey",
+        "parameters": [
+          {
+            "name": "key",
+            "in": "path",
+            "description": "Unique key identifier for the activity",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully returned the activity",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Activity"
+                },
+                "example": {
+                  "activity": "Learn how to french braid hair",
+                  "type": "education",
+                  "participants": 1,
+                  "price": 0,
+                  "link": "",
+                  "key": "4387026",
+                  "accessibility": 0.1
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Activity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Activity": {
+        "type": "object",
+        "properties": {
+          "activity": {
+            "type": "string",
+            "description": "Description of the activity"
+          },
+          "type": {
+            "type": "string",
+            "description": "Type of activity",
+            "enum": [
+              "education",
+              "recreational",
+              "social",
+              "diy",
+              "charity",
+              "cooking",
+              "relaxation",
+              "music",
+              "busywork"
+            ]
+          },
+          "participants": {
+            "type": "integer",
+            "description": "Number of participants required"
+          },
+          "price": {
+            "type": "number",
+            "format": "double",
+            "description": "Price factor between 0 and 1 (0 being free)"
+          },
+          "link": {
+            "type": "string",
+            "description": "URL link with more information about the activity (may be empty)"
+          },
+          "key": {
+            "type": "string",
+            "description": "Unique identifier for the activity"
+          },
+          "accessibility": {
+            "type": "number",
+            "format": "double",
+            "description": "Accessibility factor between 0 and 1 (0 being most accessible)"
+          }
+        },
+        "required": [
+          "activity",
+          "type",
+          "participants",
+          "price",
+          "key",
+          "accessibility"
+        ]
+      },
+      "Error": {
+        "type": "object",
+        "properties": {
+          "error": {
+            "type": "string",
+            "description": "Error message"
+          }
+        }
+      }
+    }
+  }
+}
