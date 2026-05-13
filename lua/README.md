@@ -246,9 +246,10 @@ Create an instance: `const activity = client.Activity()`
 
 #### Example: Load
 
-```ts
-const activity = await client.Activity().load({ id: 'activity_id' })
-```
+```lua
+local activity, err = client:Activity(nil):load({ id = 'activity_id' }, nil)
+if err then error(err) end
+print(activity)
 
 
 ## Explanation
