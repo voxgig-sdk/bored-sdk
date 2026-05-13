@@ -1,7 +1,7 @@
 {
   "name": "@voxgig-sdk/bored",
   "version": "0.0.1",
-  "description": "DESCRIPTION",
+  "description": "Voxgig SDK for the Bored API - multi-language API client",
   "main": "dist/BoredSDK.js",
   "type": "commonjs",
   "types": "dist/BoredSDK.d.ts",
