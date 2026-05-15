@@ -5,7 +5,7 @@ import (
 
 	vs "github.com/voxgig/struct"
 
-	"voxgigboredsdk/core"
+	"github.com/voxgig-sdk/bored-sdk/core"
 )
 
 func makeSpecUtil(ctx *core.Context) (*core.Spec, error) {

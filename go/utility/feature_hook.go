@@ -3,7 +3,7 @@ package utility
 import (
 	"reflect"
 
-	"voxgigboredsdk/core"
+	"github.com/voxgig-sdk/bored-sdk/core"
 )
 
 func featureHookUtil(ctx *core.Context, name string) {

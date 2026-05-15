@@ -3,7 +3,7 @@ package utility
 import (
 	"fmt"
 
-	"voxgigboredsdk/core"
+	"github.com/voxgig-sdk/bored-sdk/core"
 )
 
 func resultBasicUtil(ctx *core.Context) *core.Result {

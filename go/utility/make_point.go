@@ -5,7 +5,7 @@ import (
 
 	vs "github.com/voxgig/struct"
 
-	"voxgigboredsdk/core"
+	"github.com/voxgig-sdk/bored-sdk/core"
 )
 
 func makePointUtil(ctx *core.Context) (map[string]any, error) {

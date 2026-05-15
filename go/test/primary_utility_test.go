@@ -4,7 +4,7 @@ import (
 	"strings"
 	"testing"
 
-	sdk "voxgigboredsdk"
+	sdk "github.com/voxgig-sdk/bored-sdk"
 
 	vs "github.com/voxgig/struct"
 )

@@ -1,10 +1,10 @@
 package voxgigboredsdk
 
 import (
-	"voxgigboredsdk/core"
-	"voxgigboredsdk/entity"
-	"voxgigboredsdk/feature"
-	_ "voxgigboredsdk/utility"
+	"github.com/voxgig-sdk/bored-sdk/core"
+	"github.com/voxgig-sdk/bored-sdk/entity"
+	"github.com/voxgig-sdk/bored-sdk/feature"
+	_ "github.com/voxgig-sdk/bored-sdk/utility"
 )
 
 // Type aliases preserve external API.

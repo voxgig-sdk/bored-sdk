@@ -1,6 +1,6 @@
 package utility
 
-import "voxgigboredsdk/core"
+import "github.com/voxgig-sdk/bored-sdk/core"
 
 func prepareBodyUtil(ctx *core.Context) any {
 	op := ctx.Op

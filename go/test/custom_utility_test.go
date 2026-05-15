@@ -3,7 +3,7 @@ package sdktest
 import (
 	"testing"
 
-	sdk "voxgigboredsdk"
+	sdk "github.com/voxgig-sdk/bored-sdk"
 )
 
 func TestCustomUtility(t *testing.T) {

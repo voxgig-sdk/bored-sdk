@@ -1,7 +1,7 @@
 package feature
 
 import (
-	"voxgigboredsdk/core"
+	"github.com/voxgig-sdk/bored-sdk/core"
 )
 
 type BaseFeature struct {

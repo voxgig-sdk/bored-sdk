@@ -1,6 +1,6 @@
 package utility
 
-import "voxgigboredsdk/core"
+import "github.com/voxgig-sdk/bored-sdk/core"
 
 func makeResponseUtil(ctx *core.Context) (*core.Response, error) {
 	if ctx.Out["response"] != nil {

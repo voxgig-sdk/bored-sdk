@@ -9,8 +9,8 @@ import (
 	"testing"
 	"time"
 
-	sdk "voxgigboredsdk"
-	"voxgigboredsdk/core"
+	sdk "github.com/voxgig-sdk/bored-sdk"
+	"github.com/voxgig-sdk/bored-sdk/core"
 
 	vs "github.com/voxgig/struct"
 )

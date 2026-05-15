@@ -1,10 +1,10 @@
 Gem::Specification.new do |spec|
-  spec.name          = "bored-sdk"
+  spec.name          = "voxgig-sdk-bored"
   spec.version       = "0.0.1"
   spec.authors       = ["Voxgig"]
   spec.summary       = "Bored SDK for Ruby"
   spec.license       = "MIT"
-  spec.homepage      = "https://github.com/voxgig/bored-sdk"
+  spec.homepage      = "https://github.com/voxgig-sdk/bored-sdk"
 
   spec.files         = Dir["lib/**/*.rb", "*.rb"]
   spec.require_paths = ["."]

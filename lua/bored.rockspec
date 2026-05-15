@@ -1,7 +1,7 @@
-package = "bored-sdk"
+package = "voxgig-sdk-bored"
 version = "0.0-1"
 source = {
-  url = "git://github.com/voxgig/bored-sdk.git"
+  url = "git://github.com/voxgig-sdk/bored-sdk.git"
 }
 description = {
   summary = "Bored SDK for Lua",

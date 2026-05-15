@@ -1,6 +1,6 @@
 package utility
 
-import "voxgigboredsdk/core"
+import "github.com/voxgig-sdk/bored-sdk/core"
 
 func resultBodyUtil(ctx *core.Context) *core.Result {
 	response := ctx.Response

@@ -1,4 +1,4 @@
-module voxgigboredsdk
+module github.com/voxgig-sdk/bored-sdk
 
 go 1.20
 

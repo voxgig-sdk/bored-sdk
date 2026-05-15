@@ -4,7 +4,7 @@ import (
 	"log/slog"
 	"os"
 
-	"voxgigboredsdk/core"
+	"github.com/voxgig-sdk/bored-sdk/core"
 )
 
 type LogFeature struct {
