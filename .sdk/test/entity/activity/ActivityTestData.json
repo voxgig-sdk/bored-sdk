@@ -8,7 +8,8 @@
         "link": "s49",
         "participant": "s4a",
         "price": 75,
-        "type": "s4c"
+        "type": "s4c",
+        "id": "ACTIVITY00"
       },
       "ACTIVITY01": {
         "accessibility": 140,
@@ -17,7 +18,8 @@
         "link": "s8f",
         "participant": "s90",
         "price": 145,
-        "type": "s92"
+        "type": "s92",
+        "id": "ACTIVITY01"
       },
       "ACTIVITY02": {
         "accessibility": 210,
@@ -26,7 +28,8 @@
         "link": "sd5",
         "participant": "sd6",
         "price": 215,
-        "type": "sd8"
+        "type": "sd8",
+        "id": "ACTIVITY02"
       }
     }
   },

@@ -6,8 +6,8 @@ import (
 	"strings"
 	"testing"
 
-	sdk "github.com/voxgig-sdk/bored-sdk"
-	"github.com/voxgig-sdk/bored-sdk/core"
+	sdk "github.com/voxgig-sdk/bored-sdk/go"
+	"github.com/voxgig-sdk/bored-sdk/go/core"
 )
 
 func TestActivityDirect(t *testing.T) {
