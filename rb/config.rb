@@ -15,9 +15,6 @@ module BoredConfig
       },
       "options" => {
         "base" => "https://www.boredapi.com/api",
-        "auth" => {
-          "prefix" => "Bearer",
-        },
         "headers" => {
           "content-type" => "application/json",
         },

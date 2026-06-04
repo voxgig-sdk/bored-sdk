@@ -59,14 +59,12 @@ def _activity_direct_setup(mockres):
     env = runner.env_override({
         "BORED_TEST_ACTIVITY_ENTID": {},
         "BORED_TEST_LIVE": "FALSE",
-        "BORED_APIKEY": "NONE",
     })
 
     live = env.get("BORED_TEST_LIVE") == "TRUE"
 
     if live:
         merged_opts = {
-            "apikey": env.get("BORED_APIKEY"),
         }
         client = BoredSDK(merged_opts)
         return {

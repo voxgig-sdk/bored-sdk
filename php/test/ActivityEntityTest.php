@@ -85,7 +85,6 @@ function activity_basic_setup($extra)
         "BORED_TEST_ACTIVITY_ENTID" => $idmap,
         "BORED_TEST_LIVE" => "FALSE",
         "BORED_TEST_EXPLAIN" => "FALSE",
-        "BORED_APIKEY" => "NONE",
     ]);
 
     $idmap_resolved = Helpers::to_map(
@@ -97,7 +96,6 @@ function activity_basic_setup($extra)
     if ($env["BORED_TEST_LIVE"] === "TRUE") {
         $merged_opts = Vs::merge([
             [
-                "apikey" => $env["BORED_APIKEY"],
             ],
             $extra ?? [],
         ]);

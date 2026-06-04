@@ -74,14 +74,12 @@ function directSetup(mockres?: any) {
   const env = envOverride({
     'BORED_TEST_ACTIVITY_ENTID': {},
     'BORED_TEST_LIVE': 'FALSE',
-    'BORED_APIKEY': 'NONE',
   })
 
   const live = 'TRUE' === env.BORED_TEST_LIVE
 
   if (live) {
     const client = new BoredSDK({
-      apikey: env.BORED_APIKEY,
     })
 
     let idmap: any = env['BORED_TEST_ACTIVITY_ENTID']

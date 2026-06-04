@@ -16,7 +16,17 @@
           }
         ],
         "title": "Bored API",
-        "version": "1.0.0"
+        "version": "1.0.0",
+        "tagline": "Get random activity suggestions to beat boredom, filterable by type, participants, price, and accessibility",
+        "homepage": "https://bored-api.appbrewery.com/",
+        "docs_url": "https://bored-api.appbrewery.com/",
+        "license_short": "Copyright (c) The App Brewery; no explicit licence terms published.",
+        "license_md": "- The original `boredapi.com` service is offline; the canonical replacement is the App Brewery mirror at `https://bored-api.appbrewery.com/`.\n- Copyright (c) The App Brewery. No formal open-source licence is published with the mirror; treat the data as courtesy-use for learning and demo projects.\n- If you build something public on top of it, credit The App Brewery and link back to the docs.",
+        "about_md": "The Bored API returns activity suggestions for when you need something to do. The canonical instance is now maintained by [The App Brewery](https://bored-api.appbrewery.com/) as a teaching tool for their students, after the original `boredapi.com` host went offline.\n\nWhat you get from the API for each activity:\n\n- `activity` — a short description of the thing to do\n- `type` — one of `education`, `recreational`, `social`, `charity`, `cooking`, `relaxation`, `busywork`\n- `participants` — number of people required\n- `price` — relative cost from `0` (free) upward\n- `accessibility` — how easy the activity is to do\n- `availability`, `duration`, `kidFriendly` — extra qualifiers on the activity\n- `link` — optional related URL\n- `key` — unique identifier you can use to fetch the same activity again\n\nThe mirror documents a rate limit of 100 requests per 15 minutes. No authentication is required.",
+        "entity_desc": {
+          "activity": "A single suggested thing to do, with descriptive metadata; fetched via `/random`, `/filter?type=...&participants=...`, or `/activity/{key}`."
+        },
+        "auth": false
       },
       "config": {
         "auth": {
@@ -24,7 +34,15 @@
         },
         "headers": {
           "content-type": "application/json"
-        }
+        },
+        "docs_order": [
+          "ts",
+          "py",
+          "php",
+          "go",
+          "rb",
+          "lua"
+        ]
       },
       "entity": {
         "activity": {
