@@ -113,6 +113,7 @@ function basicSetup(extra?: any) {
     'BORED_TEST_ACTIVITY_ENTID': idmap,
     'BORED_TEST_LIVE': 'FALSE',
     'BORED_TEST_EXPLAIN': 'FALSE',
+    'BORED_APIKEY': 'NONE',
   })
 
   idmap = env['BORED_TEST_ACTIVITY_ENTID']
@@ -122,6 +123,7 @@ function basicSetup(extra?: any) {
   if (live) {
     client = new BoredSDK(merge([
       {
+        apikey: env.BORED_APIKEY,
       },
       extra
     ]))

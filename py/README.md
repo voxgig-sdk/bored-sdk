@@ -1,6 +1,11 @@
 # Bored Python SDK
 
-The Python SDK for the Bored API. Provides an entity-oriented interface following Pythonic conventions.
+
+
+The Python SDK for the Bored API — an entity-oriented client following Pythonic conventions.
+
+> Other languages, the CLI, and MCP server live alongside this one — see
+> the [top-level README](../README.md).
 
 
 ## Install
@@ -23,15 +28,18 @@ loading a specific record.
 ### 1. Create a client
 
 ```python
+import os
 from bored_sdk import BoredSDK
 
-client = BoredSDK({})
+client = BoredSDK({
+    "apikey": os.environ.get("BORED_APIKEY"),
+})
 ```
 
 ### 3. Load a activity
 
 ```python
-result, err = client.Activity(None).load({"id": "example_id"}, None)
+result, err = client.Activity().load({"id": "example_id"})
 if err:
     raise Exception(err)
 print(result)
@@ -79,11 +87,9 @@ print(fetchdef["headers"])
 Create a mock client for unit testing — no server required:
 
 ```python
-client = BoredSDK.test(None, None)
+client = BoredSDK.test()
 
-result, err = client.Bored(None).load(
-    {"id": "test01"}, None
-)
+result, err = client.Bored().load({"id": "test01"})
 # result contains mock response data
 ```
 
@@ -114,6 +120,7 @@ Create a `.env.local` file at the project root:
 
 ```
 BORED_TEST_LIVE=TRUE
+BORED_APIKEY=<your-key>
 ```
 
 Then run:
@@ -137,6 +144,7 @@ Creates a new SDK client.
 
 | Option | Type | Description |
 | --- | --- | --- |
+| `apikey` | `str` | API key for authentication. |
 | `base` | `str` | Base URL of the API server. |
 | `prefix` | `str` | URL path prefix prepended to all requests. |
 | `suffix` | `str` | URL path suffix appended to all requests. |

@@ -91,6 +91,7 @@ function activity_basic_setup(extra)
     ["BORED_TEST_ACTIVITY_ENTID"] = idmap,
     ["BORED_TEST_LIVE"] = "FALSE",
     ["BORED_TEST_EXPLAIN"] = "FALSE",
+    ["BORED_APIKEY"] = "NONE",
   })
 
   local idmap_resolved = helpers.to_map(
@@ -102,6 +103,7 @@ function activity_basic_setup(extra)
   if env["BORED_TEST_LIVE"] == "TRUE" then
     local merged_opts = vs.merge({
       {
+        apikey = env["BORED_APIKEY"],
       },
       extra or {},
     })

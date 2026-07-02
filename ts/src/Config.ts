@@ -38,6 +38,10 @@ class Config {
   options = {
     base: 'https://www.boredapi.com/api',
 
+    auth: {
+      prefix: 'Bearer',
+    },
+
     headers: {
       "content-type": "application/json"
     },
@@ -55,110 +59,112 @@ class Config {
     "activity": {
       "fields": [
         {
+          "active": true,
           "name": "accessibility",
           "req": true,
           "type": "`$NUMBER`",
-          "active": true,
           "index$": 0
         },
         {
+          "active": true,
           "name": "activity",
           "req": true,
           "type": "`$STRING`",
-          "active": true,
           "index$": 1
         },
         {
+          "active": true,
           "name": "key",
           "req": true,
           "type": "`$STRING`",
-          "active": true,
           "index$": 2
         },
         {
+          "active": true,
           "name": "link",
           "req": false,
           "type": "`$STRING`",
-          "active": true,
           "index$": 3
         },
         {
+          "active": true,
           "name": "participant",
           "req": true,
           "type": "`$INTEGER`",
-          "active": true,
           "index$": 4
         },
         {
+          "active": true,
           "name": "price",
           "req": true,
           "type": "`$NUMBER`",
-          "active": true,
           "index$": 5
         },
         {
+          "active": true,
           "name": "type",
           "req": true,
           "type": "`$STRING`",
-          "active": true,
           "index$": 6
         }
       ],
       "name": "activity",
       "op": {
         "load": {
+          "input": "data",
           "name": "load",
           "points": [
             {
+              "active": true,
               "args": {
                 "query": [
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "maxaccessibility",
                     "orig": "maxaccessibility",
                     "reqd": false,
-                    "type": "`$NUMBER`",
-                    "active": true
+                    "type": "`$NUMBER`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "maxprice",
                     "orig": "maxprice",
                     "reqd": false,
-                    "type": "`$NUMBER`",
-                    "active": true
+                    "type": "`$NUMBER`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "minaccessibility",
                     "orig": "minaccessibility",
                     "reqd": false,
-                    "type": "`$NUMBER`",
-                    "active": true
+                    "type": "`$NUMBER`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "minprice",
                     "orig": "minprice",
                     "reqd": false,
-                    "type": "`$NUMBER`",
-                    "active": true
+                    "type": "`$NUMBER`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "participant",
                     "orig": "participant",
                     "reqd": false,
-                    "type": "`$INTEGER`",
-                    "active": true
+                    "type": "`$INTEGER`"
                   },
                   {
+                    "active": true,
                     "kind": "query",
                     "name": "type",
                     "orig": "type",
                     "reqd": false,
-                    "type": "`$STRING`",
-                    "active": true
+                    "type": "`$STRING`"
                   }
                 ]
               },
@@ -179,21 +185,21 @@ class Config {
               },
               "transform": {
                 "req": "`reqdata`",
-                "res": "`body`"
+                "res": "`body.activity`"
               },
-              "active": true,
               "index$": 0
             },
             {
+              "active": true,
               "args": {
                 "params": [
                   {
+                    "active": true,
                     "kind": "param",
                     "name": "id",
                     "orig": "key",
                     "reqd": true,
-                    "type": "`$STRING`",
-                    "active": true
+                    "type": "`$STRING`"
                   }
                 ]
               },
@@ -215,13 +221,11 @@ class Config {
               },
               "transform": {
                 "req": "`reqdata`",
-                "res": "`body`"
+                "res": "`body.activity`"
               },
-              "active": true,
               "index$": 1
             }
           ],
-          "input": "data",
           "key$": "load"
         }
       },

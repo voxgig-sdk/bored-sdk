@@ -1,25 +1,8 @@
 # Bored SDK
 
-Get random activity suggestions to beat boredom, filterable by type, participants, price, and accessibility
+Bored API client, generated from the OpenAPI spec.
 
 > TypeScript, Python, PHP, Golang, Ruby, Lua SDKs, a CLI, an interactive REPL, and an MCP server for AI agents — all generated from one OpenAPI spec by [@voxgig/sdkgen](https://github.com/voxgig/sdkgen).
-
-## About Bored API
-
-The Bored API returns activity suggestions for when you need something to do. The canonical instance is now maintained by [The App Brewery](https://bored-api.appbrewery.com/) as a teaching tool for their students, after the original `boredapi.com` host went offline.
-
-What you get from the API for each activity:
-
-- `activity` — a short description of the thing to do
-- `type` — one of `education`, `recreational`, `social`, `charity`, `cooking`, `relaxation`, `busywork`
-- `participants` — number of people required
-- `price` — relative cost from `0` (free) upward
-- `accessibility` — how easy the activity is to do
-- `availability`, `duration`, `kidFriendly` — extra qualifiers on the activity
-- `link` — optional related URL
-- `key` — unique identifier you can use to fetch the same activity again
-
-The mirror documents a rate limit of 100 requests per 15 minutes. No authentication is required.
 
 ## Try it
 
@@ -53,27 +36,31 @@ gem install bored-sdk
 luarocks install bored-sdk
 ```
 
-## 30-second quickstart
+## Quickstart
 
 ### TypeScript
 
 ```ts
 import { BoredSDK } from 'bored'
 
-const client = new BoredSDK({})
+const client = new BoredSDK({
+  apikey: process.env.BORED_APIKEY,
+})
 
+// Load activity data
+const activity = await client.Activity().load({})
+console.log(activity.data)
 ```
 
-See the [TypeScript README](ts/README.md) for the
-full guide, or scroll down for the same example in other languages.
+See the [TypeScript README](ts/README.md) for the full guide.
 
-## What's in the box
+## Surfaces
 
-| Surface | Use it for | Path |
-| --- | --- | --- |
-| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | App integration | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
-| **CLI** | Scripts, CI, ops, one-off API calls | `go-cli/` |
-| **MCP server** | AI agents (Claude, Cursor, Cline) | `go-mcp/` |
+| Surface | Path |
+| --- | --- |
+| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
+| **CLI** | `go-cli/` |
+| **MCP server** | `go-mcp/` |
 
 ## Use it from an AI agent (MCP)
 
@@ -103,7 +90,7 @@ The API exposes one entity:
 
 | Entity | Description | API path |
 | --- | --- | --- |
-| **Activity** | A single suggested thing to do, with descriptive metadata; fetched via `/random`, `/filter?type=...&participants=...`, or `/activity/{key}`. | `/activity` |
+| **Activity** |  | `/activity` |
 
 Each entity supports the following operations where available: **load**,
 **list**, **create**, **update**, and **remove**.
@@ -113,15 +100,17 @@ Each entity supports the following operations where available: **load**,
 ### Python
 
 ```python
+import os
 from bored_sdk import BoredSDK
 
-client = BoredSDK({})
+client = BoredSDK({
+    "apikey": os.environ.get("BORED_APIKEY"),
+})
 
 
 # Load a specific activity
-activity, err = client.Activity(None).load(
-    {"id": "example_id"}, None
-)
+activity, err = client.Activity().load({"id": "example_id"})
+print(activity)
 ```
 
 ### PHP
@@ -130,13 +119,14 @@ activity, err = client.Activity(None).load(
 <?php
 require_once 'bored_sdk.php';
 
-$client = new BoredSDK([]);
+$client = new BoredSDK([
+    "apikey" => getenv("BORED_APIKEY"),
+]);
 
 
 // Load a specific activity
-[$activity, $err] = $client->Activity(null)->load(
-    ["id" => "example_id"], null
-);
+[$activity, $err] = $client->Activity()->load(["id" => "example_id"]);
+print_r($activity);
 ```
 
 ### Golang
@@ -144,8 +134,13 @@ $client = new BoredSDK([]);
 ```go
 import sdk "github.com/voxgig-sdk/bored-sdk/go"
 
-client := sdk.NewBoredSDK(map[string]any{})
+client := sdk.NewBoredSDK(map[string]any{
+    "apikey": os.Getenv("BORED_APIKEY"),
+})
 
+// Load activity data
+activity, err := client.Activity(nil).Load(map[string]any{}, nil)
+fmt.Println(activity)
 ```
 
 ### Ruby
@@ -153,13 +148,14 @@ client := sdk.NewBoredSDK(map[string]any{})
 ```ruby
 require_relative "Bored_sdk"
 
-client = BoredSDK.new({})
+client = BoredSDK.new({
+  "apikey" => ENV["BORED_APIKEY"],
+})
 
 
 # Load a specific activity
-activity, err = client.Activity(nil).load(
-  { "id" => "example_id" }, nil
-)
+activity, err = client.Activity().load({ "id" => "example_id" })
+puts activity
 ```
 
 ### Lua
@@ -167,13 +163,14 @@ activity, err = client.Activity(nil).load(
 ```lua
 local sdk = require("bored_sdk")
 
-local client = sdk.new({})
+local client = sdk.new({
+  apikey = os.getenv("BORED_APIKEY"),
+})
 
 
 -- Load a specific activity
-local activity, err = client:Activity(nil):load(
-  { id = "example_id" }, nil
-)
+local activity, err = client:Activity():load({ id = "example_id" })
+print(activity)
 ```
 
 ## Unit testing in offline mode
@@ -192,25 +189,21 @@ const result = await client.Activity().load({ id: 'test01' })
 ### Python
 
 ```python
-client = BoredSDK.test(None, None)
-result, err = client.Activity(None).load(
-    {"id": "test01"}, None
-)
+client = BoredSDK.test()
+result, err = client.Activity().load({"id": "test01"})
 ```
 
 ### PHP
 
 ```php
-$client = BoredSDK::test(null, null);
-[$result, $err] = $client->Activity(null)->load(
-    ["id" => "test01"], null
-);
+$client = BoredSDK::test();
+[$result, $err] = $client->Activity()->load(["id" => "test01"]);
 ```
 
 ### Golang
 
 ```go
-client := sdk.TestSDK(nil, nil)
+client := sdk.Test()
 result, err := client.Activity(nil).Load(
     map[string]any{"id": "test01"}, nil,
 )
@@ -219,19 +212,15 @@ result, err := client.Activity(nil).Load(
 ### Ruby
 
 ```ruby
-client = BoredSDK.test(nil, nil)
-result, err = client.Activity(nil).load(
-  { "id" => "test01" }, nil
-)
+client = BoredSDK.test
+result, err = client.Activity().load({ "id" => "test01" })
 ```
 
 ### Lua
 
 ```lua
-local client = sdk.test(nil, nil)
-local result, err = client:Activity(nil):load(
-  { id = "test01" }, nil
-)
+local client = sdk.test()
+local result, err = client:Activity():load({ id = "test01" })
 ```
 
 ## How it works
@@ -335,14 +324,6 @@ local result, err = client:direct({
 - [Golang](go/README.md)
 - [Ruby](rb/README.md)
 - [Lua](lua/README.md)
-
-## Using the Bored API
-
-- Upstream: [https://bored-api.appbrewery.com/](https://bored-api.appbrewery.com/)
-
-- The original `boredapi.com` service is offline; the canonical replacement is the App Brewery mirror at `https://bored-api.appbrewery.com/`.
-- Copyright (c) The App Brewery. No formal open-source licence is published with the mirror; treat the data as courtesy-use for learning and demo projects.
-- If you build something public on top of it, credit The App Brewery and link back to the docs.
 
 ---
 

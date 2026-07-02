@@ -67,12 +67,14 @@ function activity_direct_setup($mockres)
     $env = Runner::env_override([
         "BORED_TEST_ACTIVITY_ENTID" => [],
         "BORED_TEST_LIVE" => "FALSE",
+        "BORED_APIKEY" => "NONE",
     ]);
 
     $live = $env["BORED_TEST_LIVE"] === "TRUE";
 
     if ($live) {
         $merged_opts = [
+            "apikey" => $env["BORED_APIKEY"],
         ];
         $client = new BoredSDK($merged_opts);
         return [
