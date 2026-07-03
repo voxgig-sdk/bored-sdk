@@ -10,7 +10,7 @@ The Lua SDK for the Bored API — an entity-oriented client using Lua convention
 
 ## Install
 ```bash
-luarocks install bored-sdk
+luarocks install voxgig-sdk-bored
 ```
 
 If the module is not yet published, add the source directory to

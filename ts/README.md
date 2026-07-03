@@ -10,7 +10,7 @@ The TypeScript SDK for the Bored API — a type-safe, entity-oriented client wit
 
 ## Install
 ```bash
-npm install bored
+npm install @voxgig-sdk/bored
 ```
 ## Tutorial: your first API call
 

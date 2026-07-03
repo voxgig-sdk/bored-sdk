@@ -10,13 +10,13 @@ The Ruby SDK for the Bored API — an entity-oriented client using idiomatic Rub
 
 ## Install
 ```bash
-gem install bored-sdk
+gem install voxgig-sdk-bored
 ```
 
 Or add to your `Gemfile`:
 
 ```ruby
-gem "bored-sdk"
+gem "voxgig-sdk-bored"
 ```
 
 Then run:

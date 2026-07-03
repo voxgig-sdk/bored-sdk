@@ -10,7 +10,7 @@ The Python SDK for the Bored API — an entity-oriented client following Pythoni
 
 ## Install
 ```bash
-pip install bored-sdk
+pip install voxgig-sdk-bored
 ```
 
 Or install from source:

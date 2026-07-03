@@ -10,7 +10,7 @@ The PHP SDK for the Bored API — an entity-oriented client using PHP convention
 
 ## Install
 ```bash
-composer require voxgig/bored-sdk
+composer require voxgig-sdk/bored
 ```
 
 
