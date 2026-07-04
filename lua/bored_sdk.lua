@@ -244,6 +244,19 @@ end
 
 
 
+-- Idiomatic facade: client:activity():list() / client:activity():load({ id = ... })
+function BoredSDK:activity(data)
+  local EntityMod = require("entity.activity_entity")
+  if data == nil then
+    if self._activity == nil then
+      self._activity = EntityMod.new(self, nil)
+    end
+    return self._activity
+  end
+  return EntityMod.new(self, data)
+end
+
+-- Deprecated: use client:activity() instead.
 function BoredSDK:Activity(data)
   local EntityMod = require("entity.activity_entity")
   return EntityMod.new(self, data)

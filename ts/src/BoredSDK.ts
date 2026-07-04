@@ -2,6 +2,8 @@
 
 import { ActivityEntity } from './entity/ActivityEntity'
 
+export type * from './BoredTypes'
+
 
 import { inspect } from 'node:util'
 
@@ -202,6 +204,14 @@ class BoredSDK {
 
 
 
+  _activity?: ActivityEntity
+
+  // Idiomatic facade: `client.activity.list()` / `client.activity.load({ id })`.
+  get activity(): ActivityEntity {
+    return (this._activity ??= new ActivityEntity(this, undefined))
+  }
+
+  /** @deprecated Use `client.activity` instead. */
   Activity(data?: any) {
     const self = this
     return new ActivityEntity(self,data)

@@ -245,6 +245,9 @@ func (sdk *BoredSDK) Direct(fetchargs map[string]any) (map[string]any, error) {
 }
 
 
+// Activity returns a Activity entity bound to this client.
+// Idiomatic usage: client.Activity(nil).List(nil, nil) or
+// client.Activity(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *BoredSDK) Activity(data map[string]any) BoredEntity {
 	return NewActivityEntityFunc(sdk, data)
 }

@@ -79,6 +79,10 @@ end
 
 
 
+---@param reqmatch ActivityLoadMatch
+---@param ctrl? table
+---@return Activity
+---@return string? err
 function ActivityEntity:load(reqmatch, ctrl)
   local utility = self._utility
   local ctx = utility.make_context({

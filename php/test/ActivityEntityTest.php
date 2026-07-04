@@ -49,8 +49,7 @@ class ActivityEntityTest extends TestCase
         // LOAD
         $activity_ref01_ent = $client->Activity(null);
         $activity_ref01_match_dt0 = [];
-        [$activity_ref01_data_dt0_loaded, $err] = $activity_ref01_ent->load($activity_ref01_match_dt0, null);
-        $this->assertNull($err);
+        $activity_ref01_data_dt0_loaded = $activity_ref01_ent->load($activity_ref01_match_dt0, null);
         $this->assertNotNull($activity_ref01_data_dt0_loaded);
 
     }
@@ -85,7 +84,6 @@ function activity_basic_setup($extra)
         "BORED_TEST_ACTIVITY_ENTID" => $idmap,
         "BORED_TEST_LIVE" => "FALSE",
         "BORED_TEST_EXPLAIN" => "FALSE",
-        "BORED_APIKEY" => "NONE",
     ]);
 
     $idmap_resolved = Helpers::to_map(
@@ -97,7 +95,6 @@ function activity_basic_setup($extra)
     if ($env["BORED_TEST_LIVE"] === "TRUE") {
         $merged_opts = Vs::merge([
             [
-                "apikey" => $env["BORED_APIKEY"],
             ],
             $extra ?? [],
         ]);

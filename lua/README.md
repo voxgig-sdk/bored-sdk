@@ -9,12 +9,9 @@ The Lua SDK for the Bored API — an entity-oriented client using Lua convention
 
 
 ## Install
-```bash
-luarocks install voxgig-sdk-bored
-```
-
-If the module is not yet published, add the source directory to
-your `LUA_PATH`:
+This package is not yet published to LuaRocks. Install it from the
+GitHub release tag (`lua/vX.Y.Z`, see [Releases](https://github.com/voxgig-sdk/bored-sdk/releases)),
+or add the source directory to your `LUA_PATH`:
 
 ```bash
 export LUA_PATH="path/to/lua/?.lua;path/to/lua/?/init.lua;;"
@@ -31,15 +28,13 @@ loading a specific record.
 ```lua
 local sdk = require("bored_sdk")
 
-local client = sdk.new({
-  apikey = os.getenv("BORED_APIKEY"),
-})
+local client = sdk.new()
 ```
 
-### 3. Load a activity
+### 3. Load an activity
 
 ```lua
-local result, err = client:Activity():load({ id = "example_id" })
+local result, err = client:activity():load({ id = "example_id" })
 if err then error(err) end
 print(result)
 ```
@@ -87,7 +82,7 @@ Create a mock client for unit testing — no server required:
 ```lua
 local client = sdk.test()
 
-local result, err = client:Bored():load({ id = "test01" })
+local result, err = client:activity():load({ id = "test01" })
 -- result contains mock response data
 ```
 
@@ -121,7 +116,6 @@ Create a `.env.local` file at the project root:
 
 ```
 BORED_TEST_LIVE=TRUE
-BORED_APIKEY=<your-key>
 ```
 
 Then run:
@@ -144,7 +138,6 @@ Creates a new SDK client.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `apikey` | `string` | API key for authentication. |
 | `base` | `string` | Base URL of the API server. |
 | `prefix` | `string` | URL path prefix prepended to all requests. |
 | `suffix` | `string` | URL path suffix appended to all requests. |
@@ -227,7 +220,7 @@ API path: `/activity`
 
 ### Activity
 
-Create an instance: `const activity = client.Activity()`
+Create an instance: `const activity = client.activity`
 
 #### Operations
 
@@ -250,7 +243,7 @@ Create an instance: `const activity = client.Activity()`
 #### Example: Load
 
 ```ts
-const activity = await client.Activity().load({ id: 'activity_id' })
+const activity = await client.activity.load({ id: 'activity_id' })
 ```
 
 
@@ -325,11 +318,11 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```lua
-local moon = client:Moon(nil)
-moon:load({ planet_id = "earth", id = "luna" }, nil)
+local activity = client:activity()
+activity:load({ id = "example_id" })
 
--- moon:data_get() now returns the loaded moon data
--- moon:match_get() returns the last match criteria
+-- activity:data_get() now returns the loaded activity data
+-- activity:match_get() returns the last match criteria
 ```
 
 Call `make()` to create a fresh instance with the same configuration

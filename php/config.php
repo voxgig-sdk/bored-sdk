@@ -20,9 +20,6 @@ class BoredConfig
             ],
             "options" => [
                 "base" => "https://www.boredapi.com/api",
-                "auth" => [
-                    "prefix" => "Bearer",
-                ],
                 "headers" => [
           'content-type' => 'application/json',
         ],
@@ -175,6 +172,7 @@ class BoredConfig
                         'orig' => 'key',
                         'reqd' => true,
                         'type' => '`$STRING`',
+                        'index$' => 0,
                       ],
                     ],
                   ],

@@ -99,14 +99,12 @@ func activityDirectSetup(mockres any) *activityDirectSetupResult {
 	env := envOverride(map[string]any{
 		"BORED_TEST_ACTIVITY_ENTID": map[string]any{},
 		"BORED_TEST_LIVE":    "FALSE",
-		"BORED_APIKEY":       "NONE",
 	})
 
 	live := env["BORED_TEST_LIVE"] == "TRUE"
 
 	if live {
 		mergedOpts := map[string]any{
-			"apikey": env["BORED_APIKEY"],
 		}
 		client := sdk.NewBoredSDK(mergedOpts)
 
