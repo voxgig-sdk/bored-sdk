@@ -85,7 +85,7 @@ Prepare a fetch definition without sending the request. Returns the
 ## ActivityEntity
 
 ```php
-$activity = $client->activity();
+$activity = $client->Activity();
 ```
 
 ### Fields
@@ -107,7 +107,7 @@ $activity = $client->activity();
 Load a single entity matching the given criteria. Throws on error.
 
 ```php
-$result = $client->activity()->load(["id" => "activity_id"]);
+$result = $client->Activity()->load(["id" => "activity_id"]);
 ```
 
 ### Common Methods

@@ -111,7 +111,7 @@ main: kit: entity: activity: {
           }
           transform: {
             req: "`reqdata`"
-            res: "`body.activity`"
+            res: "`body`"
           }
         }
         {
@@ -144,7 +144,7 @@ main: kit: entity: activity: {
           }
           transform: {
             req: "`reqdata`"
-            res: "`body.activity`"
+            res: "`body`"
           }
         }
       ]

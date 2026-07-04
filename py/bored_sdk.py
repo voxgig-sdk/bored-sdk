@@ -220,25 +220,15 @@ class BoredSDK:
         }
 
 
-    @property
-    def activity(self):
-        """Idiomatic facade: client.activity.list() / client.activity.load({"id": ...})."""
-        from entity.activity_entity import ActivityEntity
-        cached = getattr(self, "_activity", None)
-        if cached is None:
-            cached = ActivityEntity(self, None)
-            self._activity = cached
-        return cached
-
-    def Activity(self, data=None):
-        # Deprecated: use client.activity instead.
+    def Activity(self, data=None) -> "ActivityEntity":
+        """Entity factory: client.Activity().list({}) / client.Activity().load({"id": ...})."""
         from entity.activity_entity import ActivityEntity
         return ActivityEntity(self, data)
 
 
 
     @classmethod
-    def test(cls, testopts=None, sdkopts=None):
+    def test(cls, testopts=None, sdkopts=None) -> "BoredSDK":
         if sdkopts is None:
             sdkopts = {}
         sdkopts = vs.clone(sdkopts)
@@ -258,3 +248,9 @@ class BoredSDK:
         sdk.mode = "test"
 
         return sdk
+
+
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from entity.activity_entity import ActivityEntity

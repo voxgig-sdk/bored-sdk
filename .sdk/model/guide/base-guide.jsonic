@@ -8,12 +8,10 @@ guide: {
   entity: activity: {
     path: "/activity": {
       op: load: method: *GET
-      op: load: transform: res: *("`body.activity`")|top
     }
     path: "/activity/{key}": {
       rename: param: "key": *"id"
       op: load: method: *GET
-      op: load: transform: res: *("`body.activity`")|top
     }
   }
 

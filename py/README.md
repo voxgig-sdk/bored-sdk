@@ -33,10 +33,12 @@ client = BoredSDK()
 
 ### 3. Load an activity
 
+`load()` returns the bare record (a `dict`) and raises on error.
+
 ```python
 try:
-    result = client.activity.load({"id": "example_id"})
-    print(result)
+    activity = client.Activity().load({"id": "example_id"})
+    print(activity)
 except Exception as err:
     print(f"load failed: {err}")
 ```
@@ -84,8 +86,9 @@ Create a mock client for unit testing — no server required:
 ```python
 client = BoredSDK.test()
 
-result = client.activity.load({"id": "test01"})
-# result contains mock response data
+# Entity ops return the bare record and raise on error.
+activity = client.Activity().load({"id": "test01"})
+# activity contains the mock response record
 ```
 
 ### Use a custom fetch function
@@ -161,7 +164,7 @@ Creates a test-mode client with mock transport. Both arguments may be `None`.
 | `get_utility` | `() -> Utility` | Copy of the SDK utility object. |
 | `prepare` | `(fetchargs) -> dict` | Build an HTTP request definition without sending. Raises on error. |
 | `direct` | `(fetchargs) -> dict` | Build and send an HTTP request. Returns a result dict (branch on `ok`). |
-| `Activity` | `(data) -> ActivityEntity` | Create a Activity entity instance. |
+| `Activity` | `(data) -> ActivityEntity` | Create an Activity entity instance. |
 
 ### Entity interface
 
@@ -224,7 +227,7 @@ API path: `/activity`
 
 ### Activity
 
-Create an instance: `const activity = client.activity`
+Create an instance: `activity = client.Activity()`
 
 #### Operations
 
@@ -246,8 +249,8 @@ Create an instance: `const activity = client.activity`
 
 #### Example: Load
 
-```ts
-const activity = await client.activity.load({ id: 'activity_id' })
+```python
+activity = client.Activity().load({"id": "activity_id"})
 ```
 
 
@@ -321,7 +324,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```python
-activity = client.activity
+activity = client.Activity()
 activity.load({"id": "example_id"})
 
 # activity.data_get() now returns the loaded activity data

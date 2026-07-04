@@ -244,8 +244,9 @@ end
 
 
 
--- Idiomatic facade: client:activity():list() / client:activity():load({ id = ... })
-function BoredSDK:activity(data)
+-- Idiomatic facade: client:Activity():list() / client:Activity():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function BoredSDK:Activity(data)
   local EntityMod = require("entity.activity_entity")
   if data == nil then
     if self._activity == nil then
@@ -253,12 +254,6 @@ function BoredSDK:activity(data)
     end
     return self._activity
   end
-  return EntityMod.new(self, data)
-end
-
--- Deprecated: use client:activity() instead.
-function BoredSDK:Activity(data)
-  local EntityMod = require("entity.activity_entity")
   return EntityMod.new(self, data)
 end
 

@@ -109,7 +109,7 @@ Alias for `BoredSDK.test()`.
 ## ActivityEntity
 
 ```ts
-const activity = client.activity
+const activity = client.Activity()
 ```
 
 ### Fields
@@ -131,7 +131,7 @@ const activity = client.activity
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.activity.load({ id: 'activity_id' })
+const result = await client.Activity().load({ id: 'activity_id' })
 ```
 
 ### Common Methods

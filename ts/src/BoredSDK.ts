@@ -204,14 +204,7 @@ class BoredSDK {
 
 
 
-  _activity?: ActivityEntity
-
-  // Idiomatic facade: `client.activity.list()` / `client.activity.load({ id })`.
-  get activity(): ActivityEntity {
-    return (this._activity ??= new ActivityEntity(this, undefined))
-  }
-
-  /** @deprecated Use `client.activity` instead. */
+  // Entity access: `client.Activity().list()` / `client.Activity().load({ id })`.
   Activity(data?: any) {
     const self = this
     return new ActivityEntity(self,data)

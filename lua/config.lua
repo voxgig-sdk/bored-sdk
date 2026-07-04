@@ -151,7 +151,7 @@ local function make_config()
                 },
                 ["transform"] = {
                   ["req"] = "`reqdata`",
-                  ["res"] = "`body.activity`",
+                  ["res"] = "`body`",
                 },
                 ["index$"] = 0,
               },
@@ -188,7 +188,7 @@ local function make_config()
                 },
                 ["transform"] = {
                   ["req"] = "`reqdata`",
-                  ["res"] = "`body.activity`",
+                  ["res"] = "`body`",
                 },
                 ["index$"] = 1,
               },

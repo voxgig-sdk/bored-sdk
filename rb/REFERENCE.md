@@ -86,7 +86,7 @@ same parameters as `direct()`. Raises on error.
 ## ActivityEntity
 
 ```ruby
-activity = client.activity
+activity = client.Activity
 ```
 
 ### Fields
@@ -108,7 +108,7 @@ activity = client.activity
 Load a single entity matching the given criteria. Raises on error.
 
 ```ruby
-result = client.activity.load({ "id" => "activity_id" })
+result = client.Activity.load({ "id" => "activity_id" })
 ```
 
 ### Common Methods

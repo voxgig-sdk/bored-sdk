@@ -233,10 +233,10 @@ class BoredSDK
 
     private $_activity = null;
 
-    // Idiomatic facade: $client->activity()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias Activity() (PHP method
-    // names are case-insensitive).
-    public function activity($data = null)
+    // Canonical facade: $client->Activity()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->activity()
+    // resolves here too.
+    public function Activity($data = null)
     {
         require_once __DIR__ . '/entity/activity_entity.php';
         if ($data === null) {

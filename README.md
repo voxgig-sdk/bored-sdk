@@ -26,9 +26,9 @@ import { BoredSDK } from '@voxgig-sdk/bored'
 
 const client = new BoredSDK()
 
-// Load activity data
-const activity = await client.activity.load({})
-console.log(activity.data)
+// Load activity data (returns a Activity)
+const activity = await client.Activity().load()
+console.log(activity)
 ```
 
 See the [TypeScript README](ts/README.md) for the full guide.
@@ -84,8 +84,8 @@ from bored_sdk import BoredSDK
 client = BoredSDK()
 
 
-# Load a specific activity
-activity = client.activity.load({"id": "example_id"})
+# Load a specific activity (returns the record, raises on error)
+activity = client.Activity().load({"id": "example_id"})
 print(activity)
 ```
 
@@ -98,8 +98,8 @@ require_once 'bored_sdk.php';
 $client = new BoredSDK();
 
 
-// Load a specific activity
-$activity = $client->activity()->load(["id" => "example_id"]);
+// Load a specific activity (returns the bare record; throws on error)
+$activity = $client->Activity()->load(["id" => "example_id"]);
 print_r($activity);
 ```
 
@@ -123,8 +123,8 @@ require_relative "Bored_sdk"
 client = BoredSDK.new
 
 
-# Load a specific activity
-activity = client.activity.load({ "id" => "example_id" })
+# Load a specific activity (returns the bare record; raises on error)
+activity = client.Activity.load({ "id" => "example_id" })
 puts activity
 ```
 
@@ -137,7 +137,7 @@ local client = sdk.new()
 
 
 -- Load a specific activity
-local activity, err = client:activity():load({ id = "example_id" })
+local activity, err = client:Activity():load({ id = "example_id" })
 print(activity)
 ```
 
@@ -150,22 +150,27 @@ in-memory mock, so unit tests run offline.
 
 ```ts
 const client = BoredSDK.test()
-const result = await client.activity.load({ id: 'test01' })
-// result.ok === true, result.data contains mock data
+const activity = await client.Activity().load({ id: 'test01' })
+// activity is a bare Activity populated with mock data
+console.log(activity)
 ```
 
 ### Python
 
 ```python
 client = BoredSDK.test()
-result = client.activity.load({"id": "test01"})
+activity = client.Activity().load({"id": "test01"})
+print(activity)
 ```
 
 ### PHP
 
 ```php
-$client = BoredSDK::test();
-$result = $client->activity()->load(["id" => "test01"]);
+// Seed fixture data so offline calls resolve without a live server.
+$client = BoredSDK::test([
+    "entity" => ["activity" => ["test01" => ["id" => "test01"]]],
+]);
+$activity = $client->Activity()->load(["id" => "test01"]);
 ```
 
 ### Golang
@@ -180,15 +185,18 @@ result, err := client.Activity(nil).Load(
 ### Ruby
 
 ```ruby
-client = BoredSDK.test
-result = client.activity.load({ "id" => "test01" })
+# Seed fixture data so offline calls resolve without a live server.
+client = BoredSDK.test({
+  "entity" => { "activity" => { "test01" => { "id" => "test01" } } },
+})
+activity = client.Activity.load({ "id" => "test01" })
 ```
 
 ### Lua
 
 ```lua
 local client = sdk.test()
-local result, err = client:activity():load({ id = "test01" })
+local result, err = client:Activity():load({ id = "test01" })
 ```
 
 ## How it works
@@ -236,6 +244,9 @@ const result = await client.direct({
   method: 'GET',
   params: { id: 'example' },
 })
+if (result instanceof Error) {
+  throw result
+}
 console.log(result.data)
 ```
 

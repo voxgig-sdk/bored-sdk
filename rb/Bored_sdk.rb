@@ -208,13 +208,7 @@ class BoredSDK
   end
 
 
-  # Idiomatic facade: client.activity.list / client.activity.load({ "id" => ... })
-  def activity
-    require_relative 'entity/activity_entity'
-    @activity ||= ActivityEntity.new(self, nil)
-  end
-
-  # Deprecated: use client.activity instead.
+  # Canonical facade: client.Activity.list / client.Activity.load({ "id" => ... })
   def Activity(data = nil)
     require_relative 'entity/activity_entity'
     ActivityEntity.new(self, data)

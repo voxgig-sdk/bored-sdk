@@ -80,7 +80,7 @@ Prepare a fetch definition without sending. Returns the `fetchdef` and raises on
 ## ActivityEntity
 
 ```python
-activity = client.activity
+activity = client.Activity()
 ```
 
 ### Fields
@@ -102,7 +102,7 @@ activity = client.activity
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.activity.load({"id": "activity_id"})
+result = client.Activity().load({"id": "activity_id"})
 ```
 
 ### Common Methods

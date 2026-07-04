@@ -83,7 +83,7 @@ same parameters as `direct()`.
 ## ActivityEntity
 
 ```lua
-local activity = client:activity(nil)
+local activity = client:Activity(nil)
 ```
 
 ### Fields
@@ -105,7 +105,7 @@ local activity = client:activity(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:activity():load({ id = "activity_id" })
+local result, err = client:Activity():load({ id = "activity_id" })
 ```
 
 ### Common Methods

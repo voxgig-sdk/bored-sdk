@@ -152,7 +152,7 @@ def make_config():
                 },
                 "transform": {
                   "req": "`reqdata`",
-                  "res": "`body.activity`",
+                  "res": "`body`",
                 },
                 "index$": 0,
               },
@@ -189,7 +189,7 @@ def make_config():
                 },
                 "transform": {
                   "req": "`reqdata`",
-                  "res": "`body.activity`",
+                  "res": "`body`",
                 },
                 "index$": 1,
               },

@@ -32,8 +32,9 @@ client = BoredSDK.new
 
 ```ruby
 begin
-  result = client.activity.load({ "id" => "example_id" })
-  puts result
+  # load returns the bare Activity record (raises on error).
+  activity = client.Activity.load({ "id" => "example_id" })
+  puts activity
 rescue => err
   warn "load failed: #{err}"
 end
@@ -80,13 +81,17 @@ end
 
 ### Use test mode
 
-Create a mock client for unit testing — no server required:
+Create a mock client for unit testing — no server required. Seed fixture
+data via the `entity` option so offline calls resolve without a live server:
 
 ```ruby
-client = BoredSDK.test
+client = BoredSDK.test({
+  "entity" => { "activity" => { "test01" => { "id" => "test01" } } },
+})
 
-result = client.activity.load({ "id" => "test01" })
-# result contains mock response data
+# load returns the bare mock record (raises on error).
+activity = client.Activity.load({ "id" => "test01" })
+puts activity
 ```
 
 ### Use a custom fetch function
@@ -162,7 +167,7 @@ Creates a test-mode client with mock transport. Both arguments may be `nil`.
 | `get_utility` | `() -> Utility` | Copy of the SDK utility object. |
 | `prepare` | `(fetchargs) -> Hash` | Build an HTTP request definition without sending. Raises on error. |
 | `direct` | `(fetchargs) -> Hash` | Build and send an HTTP request. Returns a result hash (`result["ok"]`); does not raise. |
-| `Activity` | `(data) -> ActivityEntity` | Create a Activity entity instance. |
+| `Activity` | `(data) -> ActivityEntity` | Create an Activity entity instance. |
 
 ### Entity interface
 
@@ -224,7 +229,7 @@ API path: `/activity`
 
 ### Activity
 
-Create an instance: `const activity = client.activity`
+Create an instance: `activity = client.Activity`
 
 #### Operations
 
@@ -246,8 +251,9 @@ Create an instance: `const activity = client.activity`
 
 #### Example: Load
 
-```ts
-const activity = await client.activity.load({ id: 'activity_id' })
+```ruby
+# load returns the bare Activity record (raises on error).
+activity = client.Activity.load({ "id" => "activity_id" })
 ```
 
 
@@ -322,7 +328,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```ruby
-activity = client.activity
+activity = client.Activity
 activity.load({ "id" => "example_id" })
 
 # activity.data_get now returns the loaded activity data
