@@ -90,13 +90,13 @@ local activity = client:Activity(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `accessibility` | ``$NUMBER`` | Yes |  |
-| `activity` | ``$STRING`` | Yes |  |
-| `key` | ``$STRING`` | Yes |  |
-| `link` | ``$STRING`` | No |  |
-| `participant` | ``$INTEGER`` | Yes |  |
-| `price` | ``$NUMBER`` | Yes |  |
-| `type` | ``$STRING`` | Yes |  |
+| `accessibility` | `number` | Yes |  |
+| `activity` | `string` | Yes |  |
+| `key` | `string` | Yes |  |
+| `link` | `string` | No |  |
+| `participant` | `number` | Yes |  |
+| `price` | `number` | Yes |  |
+| `type` | `string` | Yes |  |
 
 ### Operations
 

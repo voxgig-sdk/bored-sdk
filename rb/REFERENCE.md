@@ -8,7 +8,7 @@ Complete API reference for the Bored Ruby SDK.
 ### Constructor
 
 ```ruby
-require_relative 'bored_sdk'
+require_relative 'Bored_sdk'
 
 client = BoredSDK.new(options)
 ```
@@ -93,13 +93,13 @@ activity = client.Activity
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `accessibility` | ``$NUMBER`` | Yes |  |
-| `activity` | ``$STRING`` | Yes |  |
-| `key` | ``$STRING`` | Yes |  |
-| `link` | ``$STRING`` | No |  |
-| `participant` | ``$INTEGER`` | Yes |  |
-| `price` | ``$NUMBER`` | Yes |  |
-| `type` | ``$STRING`` | Yes |  |
+| `accessibility` | `Float` | Yes |  |
+| `activity` | `String` | Yes |  |
+| `key` | `String` | Yes |  |
+| `link` | `String` | No |  |
+| `participant` | `Integer` | Yes |  |
+| `price` | `Float` | Yes |  |
+| `type` | `String` | Yes |  |
 
 ### Operations
 

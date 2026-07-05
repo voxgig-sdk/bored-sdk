@@ -87,13 +87,13 @@ activity = client.Activity()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `accessibility` | ``$NUMBER`` | Yes |  |
-| `activity` | ``$STRING`` | Yes |  |
-| `key` | ``$STRING`` | Yes |  |
-| `link` | ``$STRING`` | No |  |
-| `participant` | ``$INTEGER`` | Yes |  |
-| `price` | ``$NUMBER`` | Yes |  |
-| `type` | ``$STRING`` | Yes |  |
+| `accessibility` | `float` | Yes |  |
+| `activity` | `str` | Yes |  |
+| `key` | `str` | Yes |  |
+| `link` | `str` | No |  |
+| `participant` | `int` | Yes |  |
+| `price` | `float` | Yes |  |
+| `type` | `str` | Yes |  |
 
 ### Operations
 

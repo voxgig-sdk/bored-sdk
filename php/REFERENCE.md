@@ -45,11 +45,11 @@ $client = BoredSDK::test();
 
 Create a new `ActivityEntity` instance. Pass `null` for no initial data.
 
-#### `optionsMap(): array`
+#### `options_map(): array`
 
 Return a deep copy of the current SDK options.
 
-#### `getUtility(): ProjectNameUtility`
+#### `get_utility(): BoredUtility`
 
 Return a copy of the SDK utility object.
 
@@ -92,13 +92,13 @@ $activity = $client->Activity();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `accessibility` | ``$NUMBER`` | Yes |  |
-| `activity` | ``$STRING`` | Yes |  |
-| `key` | ``$STRING`` | Yes |  |
-| `link` | ``$STRING`` | No |  |
-| `participant` | ``$INTEGER`` | Yes |  |
-| `price` | ``$NUMBER`` | Yes |  |
-| `type` | ``$STRING`` | Yes |  |
+| `accessibility` | `float` | Yes |  |
+| `activity` | `string` | Yes |  |
+| `key` | `string` | Yes |  |
+| `link` | `string` | No |  |
+| `participant` | `int` | Yes |  |
+| `price` | `float` | Yes |  |
+| `type` | `string` | Yes |  |
 
 ### Operations
 
@@ -112,19 +112,19 @@ $result = $client->Activity()->load(["id" => "activity_id"]);
 
 ### Common Methods
 
-#### `dataGet(): array`
+#### `data_get(): array`
 
 Get the entity data. Returns a copy of the current data.
 
-#### `dataSet($data): void`
+#### `data_set($data): void`
 
 Set the entity data.
 
-#### `matchGet(): array`
+#### `match_get(): array`
 
 Get the entity match criteria.
 
-#### `matchSet($match): void`
+#### `match_set($match): void`
 
 Set the entity match criteria.
 
@@ -133,7 +133,7 @@ Set the entity match criteria.
 Create a new `ActivityEntity` instance with the same client and
 options.
 
-#### `getName(): string`
+#### `get_name(): string`
 
 Return the entity name.
 

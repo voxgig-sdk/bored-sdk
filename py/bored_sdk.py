@@ -221,7 +221,7 @@ class BoredSDK:
 
 
     def Activity(self, data=None) -> "ActivityEntity":
-        """Entity factory: client.Activity().list({}) / client.Activity().load({"id": ...})."""
+        """Entity factory: client.Activity().list() / client.Activity().load({"id": ...})."""
         from entity.activity_entity import ActivityEntity
         return ActivityEntity(self, data)
 

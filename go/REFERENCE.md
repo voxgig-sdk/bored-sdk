@@ -97,13 +97,13 @@ activity := client.Activity(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `accessibility` | ``$NUMBER`` | Yes |  |
-| `activity` | ``$STRING`` | Yes |  |
-| `key` | ``$STRING`` | Yes |  |
-| `link` | ``$STRING`` | No |  |
-| `participant` | ``$INTEGER`` | Yes |  |
-| `price` | ``$NUMBER`` | Yes |  |
-| `type` | ``$STRING`` | Yes |  |
+| `accessibility` | `float64` | Yes |  |
+| `activity` | `string` | Yes |  |
+| `key` | `string` | Yes |  |
+| `link` | `string` | No |  |
+| `participant` | `int` | Yes |  |
+| `price` | `float64` | Yes |  |
+| `type` | `string` | Yes |  |
 
 ### Operations
 
