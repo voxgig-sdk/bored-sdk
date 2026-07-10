@@ -6,9 +6,6 @@
     },
     "kit": {
       "config": {
-        "auth": {
-          "prefix": "Bearer"
-        },
         "docs_order": [
           "ts",
           "py",
@@ -327,14 +324,17 @@
           "url": "https://www.boredapi.com/api/"
         },
         "description": "Get random activities based on type, participants, price, and accessibility ranges.",
+        "meta_source": "https://www.freepublicapis.com",
         "servers": [
           {
             "description": "Production server",
             "url": "https://www.boredapi.com/api"
           }
         ],
+        "summary": "Get random activities based on type, participants, price, and accessibility ranges.",
         "title": "Bored API",
-        "version": "1.0.0"
+        "version": "1.0.0",
+        "website": "https://boredapi.com"
       },
       "option": {},
       "target": {
@@ -387,6 +387,9 @@
           },
           "name": "go-cli",
           "phase": {
+            "agentguide": {
+              "active": false
+            },
             "entity": {
               "active": false
             },
@@ -437,6 +440,9 @@
           },
           "name": "go-mcp",
           "phase": {
+            "agentguide": {
+              "active": false
+            },
             "entity": {
               "active": false
             },

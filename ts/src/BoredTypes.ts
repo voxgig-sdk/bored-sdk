@@ -16,6 +16,6 @@ export interface Activity {
 }
 
 export interface ActivityLoadMatch {
-  id: string
+  id?: string
 }
 

@@ -29,5 +29,5 @@ class Activity(ActivityRequired, total=False):
     link: str
 
 
-class ActivityLoadMatch(TypedDict):
+class ActivityLoadMatch(TypedDict, total=False):
     id: str

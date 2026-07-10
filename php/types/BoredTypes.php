@@ -27,6 +27,6 @@ class Activity
 /** Request payload for Activity#load. */
 class ActivityLoadMatch
 {
-    public string $id;
+    public ?string $id = null;
 }
 

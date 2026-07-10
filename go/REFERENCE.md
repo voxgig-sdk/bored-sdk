@@ -91,6 +91,7 @@ same parameters as `Direct()`.
 
 ```go
 activity := client.Activity(nil)
+fmt.Println(activity.GetName()) // "activity"
 ```
 
 ### Fields
@@ -113,6 +114,10 @@ Load a single entity matching the given criteria.
 
 ```go
 result, err := client.Activity(nil).Load(map[string]any{"id": "activity_id"}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(result)
 ```
 
 ### Common Methods

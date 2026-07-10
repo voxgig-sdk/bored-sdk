@@ -44,7 +44,7 @@ Activity = Struct.new(
 # Request payload for Activity#load.
 #
 # @!attribute [rw] id
-#   @return [String]
+#   @return [String, nil]
 ActivityLoadMatch = Struct.new(
   :id,
   keyword_init: true

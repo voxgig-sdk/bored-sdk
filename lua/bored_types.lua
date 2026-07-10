@@ -16,7 +16,7 @@
 ---@field type string
 
 ---@class ActivityLoadMatch
----@field id string
+---@field id? string
 
 local M = {}
 
