@@ -1,4 +1,4 @@
--- ProjectName SDK exists test
+-- Bored SDK exists test
 
 local sdk = require("bored_sdk")
 
