@@ -14,12 +14,12 @@ from __future__ import annotations
 
 from urllib.parse import quote
 
-from config import make_config
-from features import _make_feature
-from core.control import BoredControl
-from core.error import BoredError
-from core.result import BoredResult
-from core.spec import BoredSpec
+from bored_sdk.config import make_config
+from bored_sdk.features import _make_feature
+from bored_sdk.core.control import BoredControl
+from bored_sdk.core.error import BoredError
+from bored_sdk.core.result import BoredResult
+from bored_sdk.core.spec import BoredSpec
 
 
 # True when this SDK was generated with the named feature.

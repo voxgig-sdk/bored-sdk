@@ -22,7 +22,7 @@
 # @!attribute [rw] link
 #   @return [String, nil]
 #
-# @!attribute [rw] participant
+# @!attribute [rw] participants
 #   @return [Integer]
 #
 # @!attribute [rw] price
@@ -35,7 +35,7 @@ Activity = Struct.new(
   :activity,
   :key,
   :link,
-  :participant,
+  :participants,
   :price,
   :type,
   keyword_init: true

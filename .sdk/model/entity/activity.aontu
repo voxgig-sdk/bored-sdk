@@ -26,7 +26,7 @@ main: kit: entity: activity: {
       type: "`$STRING`"
     }
     {
-      name: "participant"
+      name: "participants"
       req: true
       type: "`$INTEGER`"
     }

@@ -53,7 +53,7 @@ Entity operations reject on failure, so wrap them in `try` / `catch`:
 
 ```ts
 try {
-  const activity = await client.Activity().load({ id: "example_id" })
+  const activity = await client.Activity().load()
   console.log(activity)
 } catch (err) {
   console.error('load failed:', err)
@@ -121,7 +121,8 @@ Create a mock client for unit testing — no server required:
 const client = BoredSDK.test()
 
 const activity = await client.Activity().load({ id: 'test01' })
-// activity is a bare entity populated with mock response data
+// activity is the entity, populated with mock response data
+// — call activity.data() for the record itself
 console.log(activity)
 ```
 
@@ -288,7 +289,7 @@ The `prepare()` method returns:
 | `activity` |  |
 | `key` |  |
 | `link` |  |
-| `participant` |  |
+| `participants` |  |
 | `price` |  |
 | `type` |  |
 
@@ -319,7 +320,7 @@ Create an instance: `const activity = client.Activity()`
 | `activity` | `string` |  |
 | `key` | `string` |  |
 | `link` | `string` |  |
-| `participant` | `number` |  |
+| `participants` | `number` |  |
 | `price` | `number` |  |
 | `type` | `string` |  |
 
@@ -400,7 +401,7 @@ calls on the same instance can rely on this state.
 
 ```ts
 const activity = client.Activity()
-await activity.load({ id: "example_id" })
+await activity.load()
 
 // activity.data() now returns the activity data from the last `load`
 // activity.match() returns { id: "example_id" }

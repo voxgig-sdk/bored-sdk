@@ -34,7 +34,7 @@ client = BoredSDK.new
 
 ```ruby
 begin
-  # load returns the bare Activity record (raises on error).
+  # load returns the ENTITY — call data_get for the Activity record (raises on error).
   activity = client.Activity.load({ "id" => "example_id" })
   puts activity
 rescue => err
@@ -49,7 +49,7 @@ Entity operations raise on failure, so rescue them:
 
 ```ruby
 begin
-  activity = client.Activity.load({ "id" => "example_id" })
+  activity = client.Activity.load()
 rescue => err
   warn "load failed: #{err}"
 end
@@ -120,7 +120,8 @@ client = BoredSDK.test({
   "entity" => { "activity" => { "test01" => { "id" => "test01" } } },
 })
 
-# Entity ops return the bare mock record (raises on error).
+# Entity ops return the ENTITY (raises on error);
+# call data_get for the mock record.
 activity = client.Activity.load({ "id" => "test01" })
 puts activity
 ```
@@ -241,7 +242,7 @@ returns a result `Hash` with these keys:
 | `activity` |  |
 | `key` |  |
 | `link` |  |
-| `participant` |  |
+| `participants` |  |
 | `price` |  |
 | `type` |  |
 
@@ -272,14 +273,14 @@ Create an instance: `activity = client.Activity`
 | `activity` | `String` |  |
 | `key` | `String` |  |
 | `link` | `String` |  |
-| `participant` | `Integer` |  |
+| `participants` | `Integer` |  |
 | `price` | `Float` |  |
 | `type` | `String` |  |
 
 #### Example: Load
 
 ```ruby
-# load returns the bare Activity record (raises on error).
+# load returns the ENTITY — call data_get for the Activity record (raises on error).
 activity = client.Activity.load({ "id" => "activity_id" })
 ```
 
@@ -361,7 +362,7 @@ stores the returned data and match criteria internally.
 
 ```ruby
 activity = client.Activity
-activity.load({ "id" => "example_id" })
+activity.load()
 
 # activity.data_get now returns the activity data from the last load
 # activity.match_get returns the last match criteria

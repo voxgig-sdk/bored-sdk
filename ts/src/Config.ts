@@ -21,7 +21,7 @@ class Config {
 
 
   main = {
-    name: 'ProjectName',
+    name: 'Bored',
   }
 
 
@@ -84,7 +84,7 @@ class Config {
         },
         {
           "active": true,
-          "name": "participant",
+          "name": "participants",
           "req": true,
           "type": "`$INTEGER`",
           "index$": 4
@@ -164,6 +164,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/activity",
               "parts": [
@@ -200,6 +201,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/activity/{key}",
               "parts": [

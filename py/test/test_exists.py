@@ -1,4 +1,4 @@
-# ProjectName SDK exists test
+# Bored SDK exists test
 
 import pytest
 from bored_sdk import BoredSDK

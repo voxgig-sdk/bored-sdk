@@ -94,7 +94,7 @@ local activity = client:Activity(nil)
 | `activity` | `string` | Yes |  |
 | `key` | `string` | Yes |  |
 | `link` | `string` | No |  |
-| `participant` | `number` | Yes |  |
+| `participants` | `number` | Yes |  |
 | `price` | `number` | Yes |  |
 | `type` | `string` | Yes |  |
 

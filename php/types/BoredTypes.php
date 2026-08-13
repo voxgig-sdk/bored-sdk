@@ -19,7 +19,7 @@ class Activity
     public string $activity;
     public string $key;
     public ?string $link = null;
-    public int $participant;
+    public int $participants;
     public float $price;
     public string $type;
 }

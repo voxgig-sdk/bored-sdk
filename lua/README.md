@@ -48,7 +48,7 @@ Entity operations return `(value, err)`. Check `err` before using
 the value:
 
 ```lua
-local activity, err = client:Activity():load({ id = "example_id" })
+local activity, err = client:Activity():load()
 if err then error(err) end
 ```
 
@@ -229,7 +229,7 @@ Only `direct()` returns a response envelope — a `table` with `ok`,
 | `activity` |  |
 | `key` |  |
 | `link` |  |
-| `participant` |  |
+| `participants` |  |
 | `price` |  |
 | `type` |  |
 
@@ -260,7 +260,7 @@ Create an instance: `local activity = client:Activity(nil)`
 | `activity` | `string` |  |
 | `key` | `string` |  |
 | `link` | `string` |  |
-| `participant` | `number` |  |
+| `participants` | `number` |  |
 | `price` | `number` |  |
 | `type` | `string` |  |
 
@@ -348,7 +348,7 @@ stores the returned data and match criteria internally.
 
 ```lua
 local activity = client:Activity()
-activity:load({ id = "example_id" })
+activity:load()
 
 -- activity:data_get() now returns the activity data from the last load
 -- activity:match_get() returns the last match criteria

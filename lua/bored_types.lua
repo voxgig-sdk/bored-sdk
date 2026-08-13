@@ -11,7 +11,7 @@
 ---@field activity string
 ---@field key string
 ---@field link? string
----@field participant number
+---@field participants number
 ---@field price number
 ---@field type string
 

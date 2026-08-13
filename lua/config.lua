@@ -54,7 +54,7 @@ local function make_config()
           },
           {
             ["active"] = true,
-            ["name"] = "participant",
+            ["name"] = "participants",
             ["req"] = true,
             ["type"] = "`$INTEGER`",
             ["index$"] = 4,
@@ -134,6 +134,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/activity",
                 ["parts"] = {
@@ -170,6 +171,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/activity/{key}",
                 ["parts"] = {

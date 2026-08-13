@@ -66,7 +66,7 @@ Every entity operation returns `(value, error)`. Check `err` before
 using the value — there is no exception to catch:
 
 ```go
-activity, err := client.Activity(nil).Load(map[string]any{"id": "example_id"}, nil)
+activity, err := client.Activity(nil).Load(nil, nil)
 if err != nil {
     // handle err
     return
@@ -262,7 +262,7 @@ Only `Direct()` returns a response envelope — a `map[string]any` with
 | `"activity"` |  |
 | `"key"` |  |
 | `"link"` |  |
-| `"participant"` |  |
+| `"participants"` |  |
 | `"price"` |  |
 | `"type"` |  |
 
@@ -293,7 +293,7 @@ Create an instance: `activity := client.Activity(nil)`
 | `activity` | `string` |  |
 | `key` | `string` |  |
 | `link` | `string` |  |
-| `participant` | `int` |  |
+| `participants` | `int` |  |
 | `price` | `float64` |  |
 | `type` | `string` |  |
 
@@ -382,7 +382,7 @@ stores the returned data and match criteria internally.
 
 ```go
 activity := client.Activity(nil)
-activity.Load(map[string]any{"id": "example_id"}, nil)
+activity.Load(nil, nil)
 
 // activity.Data() now returns the activity data from the last load
 // activity.Match() returns the last match criteria

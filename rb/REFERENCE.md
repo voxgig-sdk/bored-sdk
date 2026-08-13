@@ -97,7 +97,7 @@ activity = client.Activity
 | `activity` | `String` | Yes |  |
 | `key` | `String` | Yes |  |
 | `link` | `String` | No |  |
-| `participant` | `Integer` | Yes |  |
+| `participants` | `Integer` | Yes |  |
 | `price` | `Float` | Yes |  |
 | `type` | `String` | Yes |  |
 

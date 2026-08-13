@@ -38,7 +38,7 @@ client = BoredSDK()
 
 ### 3. Load an activity
 
-`load()` returns the bare record (a `dict`) and raises on error.
+`load()` returns the ENTITY — call data_get() for the record — and raises on error.
 
 ```python
 try:
@@ -55,7 +55,7 @@ Entity operations raise on failure, so wrap them in `try` / `except`:
 
 ```python
 try:
-    activity = client.Activity().load({"id": "example_id"})
+    activity = client.Activity().load()
     print(activity)
 except Exception as err:
     print(f"load failed: {err}")
@@ -122,7 +122,8 @@ Create a mock client for unit testing — no server required:
 ```python
 client = BoredSDK.test()
 
-# Entity ops return the bare record and raise on error.
+# Entity ops return the ENTITY and raises on error;
+# call data_get() for the record.
 activity = client.Activity().load({"id": "test01"})
 # activity contains the mock response record
 ```
@@ -218,7 +219,7 @@ All entities share the same interface.
 
 ### Result shape
 
-Entity operations return the bare result data (a `dict` for single-entity
+Entity operations return the ENTITY (call data_get() for the record) (a `dict` for single-entity
 ops, a `list` for `list`) and raise on error. Wrap calls in
 `try`/`except` to handle failures.
 
@@ -244,7 +245,7 @@ On error, `ok` is `False` and `err` contains the error value.
 | `activity` |  |
 | `key` |  |
 | `link` |  |
-| `participant` |  |
+| `participants` |  |
 | `price` |  |
 | `type` |  |
 
@@ -275,7 +276,7 @@ Create an instance: `activity = client.Activity()`
 | `activity` | `str` |  |
 | `key` | `str` |  |
 | `link` | `str` |  |
-| `participant` | `int` |  |
+| `participants` | `int` |  |
 | `price` | `float` |  |
 | `type` | `str` |  |
 
@@ -362,7 +363,7 @@ stores the returned data and match criteria internally.
 
 ```python
 activity = client.Activity()
-activity.load({"id": "example_id"})
+activity.load()
 
 # activity.data_get() now returns the activity data from the last load
 # activity.match_get() returns the last match criteria

@@ -54,7 +54,7 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"active": true,
-						"name": "participant",
+						"name": "participants",
 						"req": true,
 						"type": "`$INTEGER`",
 						"index$": 4,
@@ -134,6 +134,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/activity",
 								"parts": []any{
@@ -170,6 +171,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/activity/{key}",
 								"parts": []any{
@@ -193,7 +195,6 @@ func MakeConfig() map[string]any {
 								"index$": 1,
 							},
 						},
-						"key$": "load",
 					},
 				},
 				"relations": map[string]any{

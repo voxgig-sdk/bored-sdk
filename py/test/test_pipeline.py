@@ -16,11 +16,11 @@
 import pytest
 
 from bored_sdk import BoredSDK
-from core.error import BoredError
-from core.result import BoredResult
-from core.response import BoredResponse
-from core.spec import BoredSpec
-from feature.base_feature import BoredBaseFeature
+from bored_sdk.core.error import BoredError
+from bored_sdk.core.result import BoredResult
+from bored_sdk.core.response import BoredResponse
+from bored_sdk.core.spec import BoredSpec
+from bored_sdk.feature.base_feature import BoredBaseFeature
 
 
 def _client():

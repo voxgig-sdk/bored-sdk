@@ -96,7 +96,7 @@ $activity = $client->Activity();
 | `activity` | `string` | Yes |  |
 | `key` | `string` | Yes |  |
 | `link` | `string` | No |  |
-| `participant` | `int` | Yes |  |
+| `participants` | `int` | Yes |  |
 | `price` | `float` | Yes |  |
 | `type` | `string` | Yes |  |
 

@@ -3,9 +3,9 @@
 import json
 import pytest
 
-from utility.voxgig_struct import voxgig_struct as vs
+from bored_sdk.utility.voxgig_struct import voxgig_struct as vs
 from bored_sdk import BoredSDK
-from core import helpers
+from bored_sdk.core import helpers
 from test import runner
 
 

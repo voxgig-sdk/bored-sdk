@@ -38,9 +38,18 @@ network, and no credentials:
 ### TypeScript
 
 ```ts
-const client = BoredSDK.test()
+// The offline mock starts EMPTY — seed it with the records the test needs.
+// Shape: { entity: { <entity-name>: { <id>: <record> } } }
+const client = BoredSDK.test({
+  entity: {
+    activity: {
+      test01: { id: 'test01' },
+    },
+  },
+})
 const activity = await client.Activity().load({ id: 'test01' })
-// activity is a bare Activity populated with mock data
+// activity is the Activity entity, populated with mock data
+// — call activity.data() for the record itself
 console.log(activity)
 ```
 
@@ -182,7 +191,7 @@ require_once 'bored_sdk.php';
 $client = new BoredSDK();
 
 
-// Load a specific activity (returns the bare record; throws on error)
+// Load a specific activity (returns the ENTITY; call data_get() for the record; throws on error)
 $activity = $client->Activity()->load(["id" => "example_id"]);
 print_r($activity);
 ```
@@ -210,7 +219,7 @@ require_relative "Bored_sdk"
 client = BoredSDK.new
 
 
-# Load a specific activity (returns the bare record; raises on error)
+# Load a specific activity (returns the ENTITY; call data_get for the record)
 activity = client.Activity.load({ "id" => "example_id" })
 puts activity
 ```
@@ -344,6 +353,9 @@ Pass custom features via the `extend` option at construction time.
 
 This SDK is generated from the upstream OpenAPI specification. It is an
 unofficial client and is not affiliated with the API provider.
+
+The OpenAPI spec(s) this SDK was generated from are kept in the
+[`.sdk/def/`](.sdk/def/) folder.
 
 - Upstream API: [https://www.boredapi.com/api/](https://www.boredapi.com/api/)
 

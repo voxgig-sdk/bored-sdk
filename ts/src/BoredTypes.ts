@@ -10,7 +10,7 @@ export interface Activity {
   activity: string
   key: string
   link?: string
-  participant: number
+  participants: number
   price: number
   type: string
 }

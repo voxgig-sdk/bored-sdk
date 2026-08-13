@@ -60,7 +60,7 @@ class BoredConfig
             ],
             [
               'active' => true,
-              'name' => 'participant',
+              'name' => 'participants',
               'req' => true,
               'type' => '`$INTEGER`',
               'index$' => 4,
@@ -140,6 +140,7 @@ class BoredConfig
                       ],
                     ],
                   ],
+                  'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/activity',
                   'parts' => [
@@ -176,6 +177,7 @@ class BoredConfig
                       ],
                     ],
                   ],
+                  'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/activity/{key}',
                   'parts' => [

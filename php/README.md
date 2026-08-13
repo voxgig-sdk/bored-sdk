@@ -35,7 +35,7 @@ $client = new BoredSDK();
 
 ```php
 try {
-    // load() returns the bare Activity record (throws on error).
+    // load() returns the ENTITY — call data_get() for the Activity record (throws on error).
     $activity = $client->Activity()->load(["id" => "example_id"]);
     print_r($activity);
 } catch (\Throwable $err) {
@@ -51,7 +51,7 @@ Entity operations throw a `\Throwable` on failure, so wrap them in
 
 ```php
 try {
-    $activity = $client->Activity()->load(["id" => "example_id"]);
+    $activity = $client->Activity()->load();
 } catch (\Throwable $err) {
     echo "Error: " . $err->getMessage();
 }
@@ -126,7 +126,8 @@ $client = BoredSDK::test([
     "entity" => ["activity" => ["test01" => ["id" => "test01"]]],
 ]);
 
-// Entity ops return the bare mock record (throws on error).
+// Entity ops return the ENTITY (throws on error);
+// call data_get() for the mock record.
 $activity = $client->Activity()->load(["id" => "test01"]);
 print_r($activity);
 ```
@@ -225,7 +226,7 @@ All entities share the same interface.
 
 ### Result shape
 
-Entity operations return the bare result data (an `array` for single-entity
+Entity operations return the ENTITY (call data_get() for the record) (an `array` for single-entity
 ops, a `list` for `list`) and throw on error. Wrap calls in
 `try`/`catch` to handle failures.
 
@@ -251,7 +252,7 @@ On error, `ok` is `false` and `$err` contains the error value.
 | `activity` |  |
 | `key` |  |
 | `link` |  |
-| `participant` |  |
+| `participants` |  |
 | `price` |  |
 | `type` |  |
 
@@ -282,14 +283,14 @@ Create an instance: `$activity = $client->Activity();`
 | `activity` | `string` |  |
 | `key` | `string` |  |
 | `link` | `string` |  |
-| `participant` | `int` |  |
+| `participants` | `int` |  |
 | `price` | `float` |  |
 | `type` | `string` |  |
 
 #### Example: Load
 
 ```php
-// load() returns the bare Activity record (throws on error).
+// load() returns the ENTITY — call data_get() for the Activity record (throws on error).
 $activity = $client->Activity()->load(["id" => "activity_id"]);
 ```
 
@@ -371,7 +372,7 @@ stores the returned data and match criteria internally.
 
 ```php
 $activity = $client->Activity();
-$activity->load(["id" => "example_id"]);
+$activity->load();
 
 // $activity->data_get() now returns the activity data from the last load
 // $activity->match_get() returns the last match criteria

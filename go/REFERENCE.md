@@ -102,7 +102,7 @@ fmt.Println(activity.GetName()) // "activity"
 | `activity` | `string` | Yes |  |
 | `key` | `string` | Yes |  |
 | `link` | `string` | No |  |
-| `participant` | `int` | Yes |  |
+| `participants` | `int` | Yes |  |
 | `price` | `float64` | Yes |  |
 | `type` | `string` | Yes |  |
 
