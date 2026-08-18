@@ -23,8 +23,8 @@ class BoredSDK:
         utility = BoredUtility()
         self._utility = utility
 
-        from bored_sdk.config import make_config
-        config = make_config()
+        from bored_sdk.config import shared_config
+        config = shared_config()
 
         self._rootctx = utility.make_context({
             "client": self,

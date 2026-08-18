@@ -25,7 +25,7 @@ type Activity struct {
 
 // ActivityLoadMatch is the typed request payload for Activity.LoadTyped.
 type ActivityLoadMatch struct {
-	Id *string `json:"id,omitempty"`
+	Id string `json:"id"`
 }
 
 // asMap turns a typed request/data struct into the map[string]any the

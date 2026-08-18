@@ -49,7 +49,7 @@ Entity operations raise on failure, so rescue them:
 
 ```ruby
 begin
-  activity = client.Activity.load()
+  activity = client.Activity.load({ "id" => "example_id" })
 rescue => err
   warn "load failed: #{err}"
 end
@@ -362,7 +362,7 @@ stores the returned data and match criteria internally.
 
 ```ruby
 activity = client.Activity
-activity.load()
+activity.load({ "id" => "example_id" })
 
 # activity.data_get now returns the activity data from the last load
 # activity.match_get returns the last match criteria

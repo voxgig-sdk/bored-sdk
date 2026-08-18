@@ -23,7 +23,7 @@ support (`load`):
 
 ```ts
 const client = new BoredSDK()
-const activity = await client.Activity().load()
+const activity = await client.Activity().load({ id: "example_id" })
 ```
 
 Thinking in entities keeps the mental model small — for people and AI agents alike —

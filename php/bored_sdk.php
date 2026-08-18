@@ -40,7 +40,7 @@ class BoredSDK
         $utility = new BoredUtility();
         $this->_utility = $utility;
 
-        $config = BoredConfig::make_config();
+        $config = BoredConfig::shared_config();
 
         $this->_rootctx = ($utility->make_context)([
             "client" => $this,

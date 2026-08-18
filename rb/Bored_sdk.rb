@@ -28,7 +28,7 @@ class BoredSDK
     utility = BoredUtility.new
     @_utility = utility
 
-    config = BoredConfig.make_config
+    config = BoredConfig.shared_config
 
     @_rootctx = utility.make_context.call({
       "client" => self,
