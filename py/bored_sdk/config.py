@@ -28,6 +28,9 @@ def make_config():
     return {
         "main": {
             "name": "Bored",
+            "slug": "bored",
+            "version": "0.0.1",
+            "target": "py",
         },
         "feature": {
             "test": {
@@ -51,35 +54,42 @@ def make_config():
           {
             "name": "accessibility",
             "req": True,
+            "short": "Accessibility factor between 0 and 1 (0 being most accessible)",
             "type": "`$NUMBER`",
           },
           {
             "name": "activity",
             "req": True,
+            "short": "Description of the activity",
             "type": "`$STRING`",
           },
           {
             "name": "key",
             "req": True,
+            "short": "Unique identifier for the activity",
             "type": "`$STRING`",
           },
           {
             "name": "link",
+            "short": "URL link with more information about the activity (may be empty)",
             "type": "`$STRING`",
           },
           {
             "name": "participants",
             "req": True,
+            "short": "Number of participants required",
             "type": "`$INTEGER`",
           },
           {
             "name": "price",
             "req": True,
+            "short": "Price factor between 0 and 1 (0 being free)",
             "type": "`$NUMBER`",
           },
           {
             "name": "type",
             "req": True,
+            "short": "Type of activity",
             "type": "`$STRING`",
           },
         ],

@@ -87,13 +87,13 @@ activity = client.Activity()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `accessibility` | `float` | Yes |  |
-| `activity` | `str` | Yes |  |
-| `key` | `str` | Yes |  |
-| `link` | `str` | No |  |
-| `participants` | `int` | Yes |  |
-| `price` | `float` | Yes |  |
-| `type` | `str` | Yes |  |
+| `accessibility` | `float` | Yes | Accessibility factor between 0 and 1 (0 being most accessible) |
+| `activity` | `str` | Yes | Description of the activity |
+| `key` | `str` | Yes | Unique identifier for the activity |
+| `link` | `str` | No | URL link with more information about the activity (may be empty) |
+| `participants` | `int` | Yes | Number of participants required |
+| `price` | `float` | Yes | Price factor between 0 and 1 (0 being free) |
+| `type` | `str` | Yes | Type of activity |
 
 ### Operations
 

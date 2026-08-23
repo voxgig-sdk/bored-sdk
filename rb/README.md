@@ -238,13 +238,13 @@ returns a result `Hash` with these keys:
 
 | Field | Description |
 | --- | --- |
-| `accessibility` |  |
-| `activity` |  |
-| `key` |  |
-| `link` |  |
-| `participants` |  |
-| `price` |  |
-| `type` |  |
+| `accessibility` | Accessibility factor between 0 and 1 (0 being most accessible) |
+| `activity` | Description of the activity |
+| `key` | Unique identifier for the activity |
+| `link` | URL link with more information about the activity (may be empty) |
+| `participants` | Number of participants required |
+| `price` | Price factor between 0 and 1 (0 being free) |
+| `type` | Type of activity |
 
 Operations: Load.
 
@@ -269,13 +269,13 @@ Create an instance: `activity = client.Activity`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `accessibility` | `Float` |  |
-| `activity` | `String` |  |
-| `key` | `String` |  |
-| `link` | `String` |  |
-| `participants` | `Integer` |  |
-| `price` | `Float` |  |
-| `type` | `String` |  |
+| `accessibility` | `Float` | Accessibility factor between 0 and 1 (0 being most accessible) |
+| `activity` | `String` | Description of the activity |
+| `key` | `String` | Unique identifier for the activity |
+| `link` | `String` | URL link with more information about the activity (may be empty) |
+| `participants` | `Integer` | Number of participants required |
+| `price` | `Float` | Price factor between 0 and 1 (0 being free) |
+| `type` | `String` | Type of activity |
 
 #### Example: Load
 

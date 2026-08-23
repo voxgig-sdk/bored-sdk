@@ -241,13 +241,13 @@ On error, `ok` is `False` and `err` contains the error value.
 
 | Field | Description |
 | --- | --- |
-| `accessibility` |  |
-| `activity` |  |
-| `key` |  |
-| `link` |  |
-| `participants` |  |
-| `price` |  |
-| `type` |  |
+| `accessibility` | Accessibility factor between 0 and 1 (0 being most accessible) |
+| `activity` | Description of the activity |
+| `key` | Unique identifier for the activity |
+| `link` | URL link with more information about the activity (may be empty) |
+| `participants` | Number of participants required |
+| `price` | Price factor between 0 and 1 (0 being free) |
+| `type` | Type of activity |
 
 Operations: Load.
 
@@ -272,13 +272,13 @@ Create an instance: `activity = client.Activity()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `accessibility` | `float` |  |
-| `activity` | `str` |  |
-| `key` | `str` |  |
-| `link` | `str` |  |
-| `participants` | `int` |  |
-| `price` | `float` |  |
-| `type` | `str` |  |
+| `accessibility` | `float` | Accessibility factor between 0 and 1 (0 being most accessible) |
+| `activity` | `str` | Description of the activity |
+| `key` | `str` | Unique identifier for the activity |
+| `link` | `str` | URL link with more information about the activity (may be empty) |
+| `participants` | `int` | Number of participants required |
+| `price` | `float` | Price factor between 0 and 1 (0 being free) |
+| `type` | `str` | Type of activity |
 
 #### Example: Load
 

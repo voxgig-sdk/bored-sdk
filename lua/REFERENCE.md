@@ -90,13 +90,13 @@ local activity = client:Activity(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `accessibility` | `number` | Yes |  |
-| `activity` | `string` | Yes |  |
-| `key` | `string` | Yes |  |
-| `link` | `string` | No |  |
-| `participants` | `number` | Yes |  |
-| `price` | `number` | Yes |  |
-| `type` | `string` | Yes |  |
+| `accessibility` | `number` | Yes | Accessibility factor between 0 and 1 (0 being most accessible) |
+| `activity` | `string` | Yes | Description of the activity |
+| `key` | `string` | Yes | Unique identifier for the activity |
+| `link` | `string` | No | URL link with more information about the activity (may be empty) |
+| `participants` | `number` | Yes | Number of participants required |
+| `price` | `number` | Yes | Price factor between 0 and 1 (0 being free) |
+| `type` | `string` | Yes | Type of activity |
 
 ### Operations
 

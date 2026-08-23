@@ -6,7 +6,7 @@ The Golang SDK for the Bored API — an entity-oriented client using standard Go
 
 It exposes the API as capitalised, semantic **Entities** — e.g. `client.Activity(nil)` — each with the same small set of operations (`Load`) instead of raw URL paths and query strings. You call meaning, not endpoints, which keeps the cognitive load low.
 
-> Other languages, the CLI, and MCP server live alongside this one — see
+> Also generated from this model: `go-cli`, `go-mcp`, `lua`, `php`, `py`, `rb`, `ts` — see
 > the [top-level README](../README.md).
 
 
@@ -258,13 +258,13 @@ Only `Direct()` returns a response envelope — a `map[string]any` with
 
 | Field | Description |
 | --- | --- |
-| `"accessibility"` |  |
-| `"activity"` |  |
-| `"key"` |  |
-| `"link"` |  |
-| `"participants"` |  |
-| `"price"` |  |
-| `"type"` |  |
+| `"accessibility"` | Accessibility factor between 0 and 1 (0 being most accessible) |
+| `"activity"` | Description of the activity |
+| `"key"` | Unique identifier for the activity |
+| `"link"` | URL link with more information about the activity (may be empty) |
+| `"participants"` | Number of participants required |
+| `"price"` | Price factor between 0 and 1 (0 being free) |
+| `"type"` | Type of activity |
 
 Operations: Load.
 
@@ -289,13 +289,13 @@ Create an instance: `activity := client.Activity(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `accessibility` | `float64` |  |
-| `activity` | `string` |  |
-| `key` | `string` |  |
-| `link` | `string` |  |
-| `participants` | `int` |  |
-| `price` | `float64` |  |
-| `type` | `string` |  |
+| `accessibility` | `float64` | Accessibility factor between 0 and 1 (0 being most accessible) |
+| `activity` | `string` | Description of the activity |
+| `key` | `string` | Unique identifier for the activity |
+| `link` | `string` | URL link with more information about the activity (may be empty) |
+| `participants` | `int` | Number of participants required |
+| `price` | `float64` | Price factor between 0 and 1 (0 being free) |
+| `type` | `string` | Type of activity |
 
 #### Example: Load
 

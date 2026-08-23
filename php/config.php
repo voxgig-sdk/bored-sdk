@@ -33,6 +33,9 @@ class BoredConfig
         return [
             "main" => [
                 "name" => "Bored",
+                "slug" => "bored",
+                "version" => "0.0.1",
+                "target" => "php",
             ],
             "feature" => [
                 "test" => [
@@ -56,35 +59,42 @@ class BoredConfig
             [
               'name' => 'accessibility',
               'req' => true,
+              'short' => 'Accessibility factor between 0 and 1 (0 being most accessible)',
               'type' => '`$NUMBER`',
             ],
             [
               'name' => 'activity',
               'req' => true,
+              'short' => 'Description of the activity',
               'type' => '`$STRING`',
             ],
             [
               'name' => 'key',
               'req' => true,
+              'short' => 'Unique identifier for the activity',
               'type' => '`$STRING`',
             ],
             [
               'name' => 'link',
+              'short' => 'URL link with more information about the activity (may be empty)',
               'type' => '`$STRING`',
             ],
             [
               'name' => 'participants',
               'req' => true,
+              'short' => 'Number of participants required',
               'type' => '`$INTEGER`',
             ],
             [
               'name' => 'price',
               'req' => true,
+              'short' => 'Price factor between 0 and 1 (0 being free)',
               'type' => '`$NUMBER`',
             ],
             [
               'name' => 'type',
               'req' => true,
+              'short' => 'Type of activity',
               'type' => '`$STRING`',
             ],
           ],

@@ -98,13 +98,13 @@ fmt.Println(activity.GetName()) // "activity"
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `accessibility` | `float64` | Yes |  |
-| `activity` | `string` | Yes |  |
-| `key` | `string` | Yes |  |
-| `link` | `string` | No |  |
-| `participants` | `int` | Yes |  |
-| `price` | `float64` | Yes |  |
-| `type` | `string` | Yes |  |
+| `accessibility` | `float64` | Yes | Accessibility factor between 0 and 1 (0 being most accessible) |
+| `activity` | `string` | Yes | Description of the activity |
+| `key` | `string` | Yes | Unique identifier for the activity |
+| `link` | `string` | No | URL link with more information about the activity (may be empty) |
+| `participants` | `int` | Yes | Number of participants required |
+| `price` | `float64` | Yes | Price factor between 0 and 1 (0 being free) |
+| `type` | `string` | Yes | Type of activity |
 
 ### Operations
 

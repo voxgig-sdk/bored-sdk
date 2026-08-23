@@ -11,6 +11,9 @@ func MakeConfig() map[string]any {
 	return map[string]any{
 		"main": map[string]any{
 			"name": "Bored",
+			"slug": "bored",
+			"version": "0.0.1",
+			"target": "go",
 		},
 		"feature": map[string]any{
 			"test": map[string]any{
@@ -34,35 +37,42 @@ func MakeConfig() map[string]any {
 					map[string]any{
 						"name": "accessibility",
 						"req": true,
+						"short": "Accessibility factor between 0 and 1 (0 being most accessible)",
 						"type": "`$NUMBER`",
 					},
 					map[string]any{
 						"name": "activity",
 						"req": true,
+						"short": "Description of the activity",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "key",
 						"req": true,
+						"short": "Unique identifier for the activity",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "link",
+						"short": "URL link with more information about the activity (may be empty)",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "participants",
 						"req": true,
+						"short": "Number of participants required",
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
 						"name": "price",
 						"req": true,
+						"short": "Price factor between 0 and 1 (0 being free)",
 						"type": "`$NUMBER`",
 					},
 					map[string]any{
 						"name": "type",
 						"req": true,
+						"short": "Type of activity",
 						"type": "`$STRING`",
 					},
 				},

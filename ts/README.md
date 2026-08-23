@@ -9,7 +9,7 @@ The API is exposed as capitalised, semantic **Entities** — e.g.
 instead of raw URL paths and query parameters. This keeps the surface
 predictable and low-friction for both humans and AI agents.
 
-> Other languages, the CLI, and MCP server live alongside this one — see
+> Also generated from this model: `go`, `go-cli`, `go-mcp`, `lua`, `php`, `py`, `rb` — see
 > the [top-level README](../README.md).
 
 
@@ -285,13 +285,13 @@ The `prepare()` method returns:
 
 | Field | Description |
 | --- | --- |
-| `accessibility` |  |
-| `activity` |  |
-| `key` |  |
-| `link` |  |
-| `participants` |  |
-| `price` |  |
-| `type` |  |
+| `accessibility` | Accessibility factor between 0 and 1 (0 being most accessible) |
+| `activity` | Description of the activity |
+| `key` | Unique identifier for the activity |
+| `link` | URL link with more information about the activity (may be empty) |
+| `participants` | Number of participants required |
+| `price` | Price factor between 0 and 1 (0 being free) |
+| `type` | Type of activity |
 
 Operations: load.
 
@@ -316,13 +316,13 @@ Create an instance: `const activity = client.Activity()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `accessibility` | `number` |  |
-| `activity` | `string` |  |
-| `key` | `string` |  |
-| `link` | `string` |  |
-| `participants` | `number` |  |
-| `price` | `number` |  |
-| `type` | `string` |  |
+| `accessibility` | `number` | Accessibility factor between 0 and 1 (0 being most accessible) |
+| `activity` | `string` | Description of the activity |
+| `key` | `string` | Unique identifier for the activity |
+| `link` | `string` | URL link with more information about the activity (may be empty) |
+| `participants` | `number` | Number of participants required |
+| `price` | `number` | Price factor between 0 and 1 (0 being free) |
+| `type` | `string` | Type of activity |
 
 #### Example: Load
 
