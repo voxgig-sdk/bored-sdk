@@ -41,9 +41,13 @@ class ActivityEntityTest < Minitest::Test
 
     # LOAD
     activity_ref01_ent = client.Activity(nil)
-    activity_ref01_match_dt0 = {}
+    activity_ref01_match_dt0 = {
+      "id" => activity_ref01_data["id"],
+    }
     activity_ref01_data_dt0_loaded = activity_ref01_ent.load(activity_ref01_match_dt0, nil)
-    assert !activity_ref01_data_dt0_loaded.nil?
+    activity_ref01_data_dt0_load_result = Helpers.to_map(activity_ref01_data_dt0_loaded.respond_to?(:data_get) ? activity_ref01_data_dt0_loaded.data_get : activity_ref01_data_dt0_loaded)
+    assert !activity_ref01_data_dt0_load_result.nil?
+    assert_equal activity_ref01_data_dt0_load_result["id"], activity_ref01_data["id"]
 
   end
 end

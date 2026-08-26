@@ -260,6 +260,7 @@ Only `Direct()` returns a response envelope — a `map[string]any` with
 | --- | --- |
 | `"accessibility"` | Accessibility factor between 0 and 1 (0 being most accessible) |
 | `"activity"` | Description of the activity |
+| `"id"` |  |
 | `"key"` | Unique identifier for the activity |
 | `"link"` | URL link with more information about the activity (may be empty) |
 | `"participants"` | Number of participants required |
@@ -291,6 +292,7 @@ Create an instance: `activity := client.Activity(nil)`
 | --- | --- | --- |
 | `accessibility` | `float64` | Accessibility factor between 0 and 1 (0 being most accessible) |
 | `activity` | `string` | Description of the activity |
+| `id` | `string` |  |
 | `key` | `string` | Unique identifier for the activity |
 | `link` | `string` | URL link with more information about the activity (may be empty) |
 | `participants` | `int` | Number of participants required |

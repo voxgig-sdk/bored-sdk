@@ -18,6 +18,11 @@ main: kit: entity: activity: {
       type: "`$STRING`"
     }
     {
+      name: "id"
+      req: false
+      type: "`$STRING`"
+    }
+    {
       name: "key"
       req: true
       short: "Unique identifier for the activity"
@@ -48,6 +53,11 @@ main: kit: entity: activity: {
       type: "`$STRING`"
     }
   ]
+
+  id: {
+    field: "id"
+    name: "id"
+  }
 
   name: "activity"
   op: {

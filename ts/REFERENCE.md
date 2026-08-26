@@ -118,6 +118,7 @@ const activity = client.Activity()
 | --- | --- | --- | --- |
 | `accessibility` | `number` | Yes | Accessibility factor between 0 and 1 (0 being most accessible) |
 | `activity` | `string` | Yes | Description of the activity |
+| `id` | `string` | No |  |
 | `key` | `string` | Yes | Unique identifier for the activity |
 | `link` | `string` | No | URL link with more information about the activity (may be empty) |
 | `participants` | `number` | Yes | Number of participants required |

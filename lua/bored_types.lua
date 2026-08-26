@@ -9,6 +9,7 @@
 ---@class Activity
 ---@field accessibility number
 ---@field activity string
+---@field id? string
 ---@field key string
 ---@field link? string
 ---@field participants number

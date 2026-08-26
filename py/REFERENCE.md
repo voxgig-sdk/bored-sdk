@@ -89,6 +89,7 @@ activity = client.Activity()
 | --- | --- | --- | --- |
 | `accessibility` | `float` | Yes | Accessibility factor between 0 and 1 (0 being most accessible) |
 | `activity` | `str` | Yes | Description of the activity |
+| `id` | `str` | No |  |
 | `key` | `str` | Yes | Unique identifier for the activity |
 | `link` | `str` | No | URL link with more information about the activity (may be empty) |
 | `participants` | `int` | Yes | Number of participants required |

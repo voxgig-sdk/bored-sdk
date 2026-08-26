@@ -28,6 +28,7 @@ module BoredConfig
           "options" => {
             "active" => false,
           },
+          "transport" => "base",
         },
       },
       "options" => {
@@ -52,6 +53,10 @@ module BoredConfig
               "name" => "activity",
               "req" => true,
               "short" => "Description of the activity",
+              "type" => "`$STRING`",
+            },
+            {
+              "name" => "id",
               "type" => "`$STRING`",
             },
             {

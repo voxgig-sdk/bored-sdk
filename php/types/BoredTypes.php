@@ -17,6 +17,7 @@ class Activity
 {
     public float $accessibility;
     public string $activity;
+    public ?string $id = null;
     public string $key;
     public ?string $link = null;
     public int $participants;

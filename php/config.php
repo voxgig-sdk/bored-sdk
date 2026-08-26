@@ -42,6 +42,7 @@ class BoredConfig
           'options' => [
             'active' => false,
           ],
+          'transport' => 'base',
         ],
             ],
             "options" => [
@@ -66,6 +67,10 @@ class BoredConfig
               'name' => 'activity',
               'req' => true,
               'short' => 'Description of the activity',
+              'type' => '`$STRING`',
+            ],
+            [
+              'name' => 'id',
               'type' => '`$STRING`',
             ],
             [

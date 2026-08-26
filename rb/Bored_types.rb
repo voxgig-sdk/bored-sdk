@@ -16,6 +16,9 @@
 # @!attribute [rw] activity
 #   @return [String]
 #
+# @!attribute [rw] id
+#   @return [String, nil]
+#
 # @!attribute [rw] key
 #   @return [String]
 #
@@ -33,6 +36,7 @@
 Activity = Struct.new(
   :accessibility,
   :activity,
+  :id,
   :key,
   :link,
   :participants,

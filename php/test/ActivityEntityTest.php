@@ -48,9 +48,13 @@ class ActivityEntityTest extends TestCase
 
         // LOAD
         $activity_ref01_ent = $client->Activity(null);
-        $activity_ref01_match_dt0 = [];
+        $activity_ref01_match_dt0 = [
+            "id" => $activity_ref01_data["id"],
+        ];
         $activity_ref01_data_dt0_loaded = $activity_ref01_ent->load($activity_ref01_match_dt0, null);
-        $this->assertNotNull($activity_ref01_data_dt0_loaded);
+        $activity_ref01_data_dt0_load_result = Helpers::to_map(is_object($activity_ref01_data_dt0_loaded) && method_exists($activity_ref01_data_dt0_loaded, 'data_get') ? $activity_ref01_data_dt0_loaded->data_get() : $activity_ref01_data_dt0_loaded);
+        $this->assertNotNull($activity_ref01_data_dt0_load_result);
+        $this->assertEquals($activity_ref01_data_dt0_load_result["id"], $activity_ref01_data["id"]);
 
     }
 }

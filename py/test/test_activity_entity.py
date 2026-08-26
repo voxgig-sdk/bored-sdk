@@ -48,9 +48,13 @@ class TestActivityEntity:
 
         # LOAD
         activity_ref01_ent = client.Activity(None)
-        activity_ref01_match_dt0 = {}
+        activity_ref01_match_dt0 = {
+            "id": activity_ref01_data["id"],
+        }
         activity_ref01_data_dt0_loaded = activity_ref01_ent.load(activity_ref01_match_dt0, None)
-        assert activity_ref01_data_dt0_loaded is not None
+        activity_ref01_data_dt0_load_result = helpers.to_map(runner.entity_data(activity_ref01_data_dt0_loaded))
+        assert activity_ref01_data_dt0_load_result is not None
+        assert activity_ref01_data_dt0_load_result["id"] == activity_ref01_data["id"]
 
 
 

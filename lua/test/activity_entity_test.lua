@@ -44,10 +44,14 @@ describe("ActivityEntity", function()
 
     -- LOAD
     local activity_ref01_ent = client:Activity(nil)
-    local activity_ref01_match_dt0 = {}
+    local activity_ref01_match_dt0 = {
+      id = activity_ref01_data["id"],
+    }
     local activity_ref01_data_dt0_loaded, err = activity_ref01_ent:load(activity_ref01_match_dt0, nil)
     assert.is_nil(err)
-    assert.is_not_nil(activity_ref01_data_dt0_loaded)
+    local activity_ref01_data_dt0_load_result = helpers.to_map(type(activity_ref01_data_dt0_loaded) == 'table' and activity_ref01_data_dt0_loaded.data_get and activity_ref01_data_dt0_loaded:data_get() or activity_ref01_data_dt0_loaded)
+    assert.is_not_nil(activity_ref01_data_dt0_load_result)
+    assert.are.equal(activity_ref01_data_dt0_load_result["id"], activity_ref01_data["id"])
 
   end)
 end)

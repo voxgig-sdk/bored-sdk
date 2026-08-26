@@ -227,6 +227,7 @@ Only `direct()` returns a response envelope — a `table` with `ok`,
 | --- | --- |
 | `accessibility` | Accessibility factor between 0 and 1 (0 being most accessible) |
 | `activity` | Description of the activity |
+| `id` |  |
 | `key` | Unique identifier for the activity |
 | `link` | URL link with more information about the activity (may be empty) |
 | `participants` | Number of participants required |
@@ -258,6 +259,7 @@ Create an instance: `local activity = client:Activity(nil)`
 | --- | --- | --- |
 | `accessibility` | `number` | Accessibility factor between 0 and 1 (0 being most accessible) |
 | `activity` | `string` | Description of the activity |
+| `id` | `string` |  |
 | `key` | `string` | Unique identifier for the activity |
 | `link` | `string` | URL link with more information about the activity (may be empty) |
 | `participants` | `number` | Number of participants required |

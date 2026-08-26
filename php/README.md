@@ -250,6 +250,7 @@ On error, `ok` is `false` and `$err` contains the error value.
 | --- | --- |
 | `accessibility` | Accessibility factor between 0 and 1 (0 being most accessible) |
 | `activity` | Description of the activity |
+| `id` |  |
 | `key` | Unique identifier for the activity |
 | `link` | URL link with more information about the activity (may be empty) |
 | `participants` | Number of participants required |
@@ -281,6 +282,7 @@ Create an instance: `$activity = $client->Activity();`
 | --- | --- | --- |
 | `accessibility` | `float` | Accessibility factor between 0 and 1 (0 being most accessible) |
 | `activity` | `string` | Description of the activity |
+| `id` | `string` |  |
 | `key` | `string` | Unique identifier for the activity |
 | `link` | `string` | URL link with more information about the activity (may be empty) |
 | `participants` | `int` | Number of participants required |

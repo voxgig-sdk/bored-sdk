@@ -26,6 +26,7 @@ class ActivityRequired(TypedDict):
 
 
 class Activity(ActivityRequired, total=False):
+    id: str
     link: str
 
 

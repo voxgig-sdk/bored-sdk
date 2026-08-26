@@ -2,47 +2,47 @@
   "existing": {
     "activity": {
       "ACTIVITY00": {
-        "accessibility": 70,
-        "activity": "s47",
-        "key": "s48",
-        "link": "s49",
-        "participants": "s4a",
-        "price": 75,
-        "type": "s4c",
-        "id": "ACTIVITY00"
+        "accessibility": 80,
+        "activity": "s51",
+        "id": "ACTIVITY00",
+        "key": "s53",
+        "link": "s54",
+        "participants": "s55",
+        "price": 86,
+        "type": "s57"
       },
       "ACTIVITY01": {
-        "accessibility": 140,
-        "activity": "s8d",
-        "key": "s8e",
-        "link": "s8f",
-        "participants": "s90",
-        "price": 145,
-        "type": "s92",
-        "id": "ACTIVITY01"
+        "accessibility": 160,
+        "activity": "sa1",
+        "id": "ACTIVITY01",
+        "key": "sa3",
+        "link": "sa4",
+        "participants": "sa5",
+        "price": 166,
+        "type": "sa7"
       },
       "ACTIVITY02": {
-        "accessibility": 210,
-        "activity": "sd3",
-        "key": "sd4",
-        "link": "sd5",
-        "participants": "sd6",
-        "price": 215,
-        "type": "sd8",
-        "id": "ACTIVITY02"
+        "accessibility": 240,
+        "activity": "sf1",
+        "id": "ACTIVITY02",
+        "key": "sf3",
+        "link": "sf4",
+        "participants": "sf5",
+        "price": 246,
+        "type": "sf7"
       }
     }
   },
   "new": {
     "activity": {
       "activity_ref01": {
-        "accessibility": 280,
-        "activity": "s119",
-        "key": "s11a",
-        "link": "s11b",
-        "participants": "s11c",
-        "price": 285,
-        "type": "s11e"
+        "accessibility": 320,
+        "activity": "s141",
+        "key": "s143",
+        "link": "s144",
+        "participants": "s145",
+        "price": 326,
+        "type": "s147"
       }
     }
   }

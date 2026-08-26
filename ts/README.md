@@ -145,7 +145,7 @@ await entity.load({ id: 'example' })
 
 // Subsequent calls reuse the stored state
 const data = entity.data()
-console.log(data)
+console.log(data.id)
 ```
 
 ### Add custom middleware
@@ -287,6 +287,7 @@ The `prepare()` method returns:
 | --- | --- |
 | `accessibility` | Accessibility factor between 0 and 1 (0 being most accessible) |
 | `activity` | Description of the activity |
+| `id` |  |
 | `key` | Unique identifier for the activity |
 | `link` | URL link with more information about the activity (may be empty) |
 | `participants` | Number of participants required |
@@ -318,6 +319,7 @@ Create an instance: `const activity = client.Activity()`
 | --- | --- | --- |
 | `accessibility` | `number` | Accessibility factor between 0 and 1 (0 being most accessible) |
 | `activity` | `string` | Description of the activity |
+| `id` | `string` |  |
 | `key` | `string` | Unique identifier for the activity |
 | `link` | `string` | URL link with more information about the activity (may be empty) |
 | `participants` | `number` | Number of participants required |

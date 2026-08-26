@@ -240,6 +240,7 @@ returns a result `Hash` with these keys:
 | --- | --- |
 | `accessibility` | Accessibility factor between 0 and 1 (0 being most accessible) |
 | `activity` | Description of the activity |
+| `id` |  |
 | `key` | Unique identifier for the activity |
 | `link` | URL link with more information about the activity (may be empty) |
 | `participants` | Number of participants required |
@@ -271,6 +272,7 @@ Create an instance: `activity = client.Activity`
 | --- | --- | --- |
 | `accessibility` | `Float` | Accessibility factor between 0 and 1 (0 being most accessible) |
 | `activity` | `String` | Description of the activity |
+| `id` | `String` |  |
 | `key` | `String` | Unique identifier for the activity |
 | `link` | `String` | URL link with more information about the activity (may be empty) |
 | `participants` | `Integer` | Number of participants required |

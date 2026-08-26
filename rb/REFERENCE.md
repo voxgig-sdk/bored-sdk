@@ -95,6 +95,7 @@ activity = client.Activity
 | --- | --- | --- | --- |
 | `accessibility` | `Float` | Yes | Accessibility factor between 0 and 1 (0 being most accessible) |
 | `activity` | `String` | Yes | Description of the activity |
+| `id` | `String` | No |  |
 | `key` | `String` | Yes | Unique identifier for the activity |
 | `link` | `String` | No | URL link with more information about the activity (may be empty) |
 | `participants` | `Integer` | Yes | Number of participants required |

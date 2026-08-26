@@ -16,6 +16,7 @@ import (
 type Activity struct {
 	Accessibility float64 `json:"accessibility"`
 	Activity string `json:"activity"`
+	Id *string `json:"id,omitempty"`
 	Key string `json:"key"`
 	Link *string `json:"link,omitempty"`
 	Participants int `json:"participants"`
