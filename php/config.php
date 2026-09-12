@@ -58,6 +58,7 @@ class BoredConfig
         'activity' => [
           'fields' => [
             [
+              'format' => 'double',
               'name' => 'accessibility',
               'req' => true,
               'short' => 'Accessibility factor between 0 and 1 (0 being most accessible)',
@@ -91,6 +92,7 @@ class BoredConfig
               'type' => '`$INTEGER`',
             ],
             [
+              'format' => 'double',
               'name' => 'price',
               'req' => true,
               'short' => 'Price factor between 0 and 1 (0 being free)',
@@ -102,6 +104,10 @@ class BoredConfig
               'short' => 'Type of activity',
               'type' => '`$STRING`',
             ],
+          ],
+          'id' => [
+            'field' => 'id',
+            'name' => 'id',
           ],
           'name' => 'activity',
           'op' => [
@@ -153,8 +159,10 @@ class BoredConfig
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/activity',
-                  'parts' => [
-                    'activity',
+                  'segments' => [
+                    [
+                      'lit' => 'activity',
+                    ],
                   ],
                   'select' => [
                     'exist' => [
@@ -169,6 +177,9 @@ class BoredConfig
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body`',
+                  ],
+                  'parts' => [
+                    'activity',
                   ],
                 ],
                 [
@@ -186,13 +197,17 @@ class BoredConfig
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/activity/{key}',
-                  'parts' => [
-                    'activity',
-                    '{id}',
-                  ],
                   'rename' => [
                     'param' => [
                       'key' => 'id',
+                    ],
+                  ],
+                  'segments' => [
+                    [
+                      'lit' => 'activity',
+                    ],
+                    [
+                      'var' => 'id',
                     ],
                   ],
                   'select' => [
@@ -203,6 +218,10 @@ class BoredConfig
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body`',
+                  ],
+                  'parts' => [
+                    'activity',
+                    '{id}',
                   ],
                 ],
               ],

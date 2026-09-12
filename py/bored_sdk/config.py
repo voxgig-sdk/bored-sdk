@@ -1,6 +1,14 @@
 # Bored SDK configuration
 
 
+# The sekreto plugin DEFINITIONS the model selected per feature, imported
+# above by name from the modules the catalogue's active `plugin.def`
+# entries declare. Handed to each feature (secrets builds its Sekreto
+# with them): a provider kind not listed here is unknown to that SDK.
+FEATURE_PLUGINS = {
+}
+
+
 _shared_config = None
 
 
@@ -53,6 +61,7 @@ def make_config():
       "activity": {
         "fields": [
           {
+            "format": "double",
             "name": "accessibility",
             "req": True,
             "short": "Accessibility factor between 0 and 1 (0 being most accessible)",
@@ -86,6 +95,7 @@ def make_config():
             "type": "`$INTEGER`",
           },
           {
+            "format": "double",
             "name": "price",
             "req": True,
             "short": "Price factor between 0 and 1 (0 being free)",
@@ -98,6 +108,10 @@ def make_config():
             "type": "`$STRING`",
           },
         ],
+        "id": {
+          "field": "id",
+          "name": "id",
+        },
         "name": "activity",
         "op": {
           "load": {
@@ -148,8 +162,10 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/activity",
-                "parts": [
-                  "activity",
+                "segments": [
+                  {
+                    "lit": "activity",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -165,6 +181,9 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "activity",
+                ],
               },
               {
                 "args": {
@@ -181,15 +200,19 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/activity/{key}",
-                "parts": [
-                  "activity",
-                  "{id}",
-                ],
                 "rename": {
                   "param": {
                     "key": "id",
                   },
                 },
+                "segments": [
+                  {
+                    "lit": "activity",
+                  },
+                  {
+                    "var": "id",
+                  },
+                ],
                 "select": {
                   "exist": [
                     "id",
@@ -199,6 +222,10 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "activity",
+                  "{id}",
+                ],
               },
             ],
           },

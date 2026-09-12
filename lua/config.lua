@@ -32,6 +32,7 @@ local function make_config()
       ["activity"] = {
         ["fields"] = {
           {
+            ["format"] = "double",
             ["name"] = "accessibility",
             ["req"] = true,
             ["short"] = "Accessibility factor between 0 and 1 (0 being most accessible)",
@@ -65,6 +66,7 @@ local function make_config()
             ["type"] = "`$INTEGER`",
           },
           {
+            ["format"] = "double",
             ["name"] = "price",
             ["req"] = true,
             ["short"] = "Price factor between 0 and 1 (0 being free)",
@@ -76,6 +78,10 @@ local function make_config()
             ["short"] = "Type of activity",
             ["type"] = "`$STRING`",
           },
+        },
+        ["id"] = {
+          ["field"] = "id",
+          ["name"] = "id",
         },
         ["name"] = "activity",
         ["op"] = {
@@ -127,8 +133,10 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/activity",
-                ["parts"] = {
-                  "activity",
+                ["segments"] = {
+                  {
+                    ["lit"] = "activity",
+                  },
                 },
                 ["select"] = {
                   ["exist"] = {
@@ -143,6 +151,9 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "activity",
                 },
               },
               {
@@ -160,13 +171,17 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/activity/{key}",
-                ["parts"] = {
-                  "activity",
-                  "{id}",
-                },
                 ["rename"] = {
                   ["param"] = {
                     ["key"] = "id",
+                  },
+                },
+                ["segments"] = {
+                  {
+                    ["lit"] = "activity",
+                  },
+                  {
+                    ["var"] = "id",
                   },
                 },
                 ["select"] = {
@@ -177,6 +192,10 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "activity",
+                  "{id}",
                 },
               },
             },

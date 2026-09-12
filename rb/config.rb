@@ -44,6 +44,7 @@ module BoredConfig
         "activity" => {
           "fields" => [
             {
+              "format" => "double",
               "name" => "accessibility",
               "req" => true,
               "short" => "Accessibility factor between 0 and 1 (0 being most accessible)",
@@ -77,6 +78,7 @@ module BoredConfig
               "type" => "`$INTEGER`",
             },
             {
+              "format" => "double",
               "name" => "price",
               "req" => true,
               "short" => "Price factor between 0 and 1 (0 being free)",
@@ -89,6 +91,10 @@ module BoredConfig
               "type" => "`$STRING`",
             },
           ],
+          "id" => {
+            "field" => "id",
+            "name" => "id",
+          },
           "name" => "activity",
           "op" => {
             "load" => {
@@ -139,8 +145,10 @@ module BoredConfig
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/activity",
-                  "parts" => [
-                    "activity",
+                  "segments" => [
+                    {
+                      "lit" => "activity",
+                    },
                   ],
                   "select" => {
                     "exist" => [
@@ -156,6 +164,9 @@ module BoredConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "activity",
+                  ],
                 },
                 {
                   "args" => {
@@ -172,15 +183,19 @@ module BoredConfig
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/activity/{key}",
-                  "parts" => [
-                    "activity",
-                    "{id}",
-                  ],
                   "rename" => {
                     "param" => {
                       "key" => "id",
                     },
                   },
+                  "segments" => [
+                    {
+                      "lit" => "activity",
+                    },
+                    {
+                      "var" => "id",
+                    },
+                  ],
                   "select" => {
                     "exist" => [
                       "id",
@@ -190,6 +205,10 @@ module BoredConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "activity",
+                    "{id}",
+                  ],
                 },
               ],
             },
