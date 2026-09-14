@@ -105,7 +105,7 @@ local result, err = client:Activity():load({ id = "test01" })
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/bored` | publish pending — [install from git tag](https://github.com/voxgig-sdk/bored-sdk/releases) |
+| TypeScript | `@voxgig-sdk/bored-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/bored-sdk/releases) |
 | Python | `voxgig-sdk-bored` | publish pending — [install from git tag](https://github.com/voxgig-sdk/bored-sdk/releases) |
 | PHP | `voxgig-sdk/bored` | publish pending — [install from git tag](https://github.com/voxgig-sdk/bored-sdk/releases) |
 | Golang | `github.com/voxgig-sdk/bored-sdk/go` | `go get github.com/voxgig-sdk/bored-sdk/go@latest` |
@@ -119,7 +119,7 @@ local result, err = client:Activity():load({ id = "test01" })
 ### TypeScript
 
 ```ts
-import { BoredSDK } from '@voxgig-sdk/bored'
+import { BoredSDK } from '@voxgig-sdk/bored-sdk'
 
 const client = new BoredSDK()
 

@@ -28,7 +28,7 @@ loading a specific record.
 ### 1. Create a client
 
 ```ts
-import { BoredSDK } from '@voxgig-sdk/bored'
+import { BoredSDK } from '@voxgig-sdk/bored-sdk'
 
 const client = new BoredSDK()
 ```
@@ -415,7 +415,7 @@ bored/
 Import the SDK from the package root:
 
 ```ts
-import { BoredSDK } from '@voxgig-sdk/bored'
+import { BoredSDK } from '@voxgig-sdk/bored-sdk'
 ```
 
 ### Entity state
