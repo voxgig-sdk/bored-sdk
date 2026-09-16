@@ -4,7 +4,10 @@ declare(strict_types=1);
 // Bored SDK feature factory
 
 require_once __DIR__ . '/feature/BaseFeature.php';
+require_once __DIR__ . '/feature/RatelimitFeature.php';
+require_once __DIR__ . '/feature/RetryFeature.php';
 require_once __DIR__ . '/feature/TestFeature.php';
+require_once __DIR__ . '/feature/TimeoutFeature.php';
 
 
 class BoredFeatures
@@ -14,8 +17,14 @@ class BoredFeatures
         switch ($name) {
             case "base":
                 return new BoredBaseFeature();
+            case "ratelimit":
+                return new BoredRatelimitFeature();
+            case "retry":
+                return new BoredRetryFeature();
             case "test":
                 return new BoredTestFeature();
+            case "timeout":
+                return new BoredTimeoutFeature();
             default:
                 return new BoredBaseFeature();
         }
@@ -31,7 +40,10 @@ class BoredFeatures
     {
         switch ($name) {
             case "base":
+            case "ratelimit":
+            case "retry":
             case "test":
+            case "timeout":
                 return true;
             default:
                 return false;

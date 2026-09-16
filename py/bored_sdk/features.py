@@ -1,12 +1,18 @@
 # Bored SDK feature factory
 
 from bored_sdk.feature.base_feature import BoredBaseFeature
+from bored_sdk.feature.ratelimit_feature import BoredRatelimitFeature
+from bored_sdk.feature.retry_feature import BoredRetryFeature
 from bored_sdk.feature.test_feature import BoredTestFeature
+from bored_sdk.feature.timeout_feature import BoredTimeoutFeature
 
 
 _FEATURES = {
     "base": lambda: BoredBaseFeature(),
+    "ratelimit": lambda: BoredRatelimitFeature(),
+    "retry": lambda: BoredRetryFeature(),
     "test": lambda: BoredTestFeature(),
+    "timeout": lambda: BoredTimeoutFeature(),
 }
 
 
