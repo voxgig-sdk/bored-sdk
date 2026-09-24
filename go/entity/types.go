@@ -1,7 +1,7 @@
 // Typed models for the Bored SDK.
 //
-// GENERATED from the API model: main.kit.entity.<e>.fields[] and per-op
-// params (op.<name>.points[].args.params[]). Field/param types come from the
+// GENERATED from the API model: main.kit.entity.<e>.fields{} and per-op
+// params (op.<name>.points[].g.params[]). Field/param types come from the
 // canonical type sentinels via @voxgig/sdkgen canonToType (source of truth:
 // @voxgig/apidef VALID_CANON). Do not edit by hand.
 package entity
@@ -14,14 +14,6 @@ import (
 
 // Activity is the typed data model for the activity entity.
 type Activity struct {
-	Accessibility float64 `json:"accessibility"`
-	Activity string `json:"activity"`
-	Id *string `json:"id,omitempty"`
-	Key string `json:"key"`
-	Link *string `json:"link,omitempty"`
-	Participants int `json:"participants"`
-	Price float64 `json:"price"`
-	Type string `json:"type"`
 }
 
 // ActivityLoadMatch is the typed request payload for Activity.LoadTyped.

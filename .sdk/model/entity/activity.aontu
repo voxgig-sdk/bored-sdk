@@ -1,0 +1,199 @@
+# Entity: activity
+
+main: kit: entity: activity: {
+
+  alias: field: {}
+
+  fields: {
+    accessibility: {
+      fo: "double"
+      h: "Accessibility"
+      n: "accessibility"
+      r: true
+      sh: "Accessibility factor between 0 and 1 (0 being most accessible)"
+      t: "`$NUMBER`"
+    }
+    activity: {
+      h: "Activity"
+      n: "activity"
+      r: true
+      sh: "Description of the activity"
+      t: "`$STRING`"
+    }
+    id: {
+      h: "Id"
+      n: "id"
+      r: false
+      t: "`$STRING`"
+    }
+    key: {
+      h: "Key"
+      n: "key"
+      r: true
+      sh: "Unique identifier for the activity"
+      t: "`$STRING`"
+    }
+    link: {
+      h: "Link"
+      n: "link"
+      r: false
+      sh: "URL link with more information about the activity (may be empty)"
+      t: "`$STRING`"
+    }
+    participants: {
+      h: "Participants"
+      n: "participants"
+      r: true
+      sh: "Number of participants required"
+      t: "`$INTEGER`"
+    }
+    price: {
+      fo: "double"
+      h: "Price"
+      n: "price"
+      r: true
+      sh: "Price factor between 0 and 1 (0 being free)"
+      t: "`$NUMBER`"
+    }
+    type: {
+      h: "Type"
+      n: "type"
+      r: true
+      sh: "Type of activity"
+      t: "`$STRING`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "activity"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /activity"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                k: "query"
+                n: "maxaccessibility"
+                or: "maxaccessibility"
+                r: false
+                t: "`$NUMBER`"
+              }
+              {
+                k: "query"
+                n: "maxprice"
+                or: "maxprice"
+                r: false
+                t: "`$NUMBER`"
+              }
+              {
+                k: "query"
+                n: "minaccessibility"
+                or: "minaccessibility"
+                r: false
+                t: "`$NUMBER`"
+              }
+              {
+                k: "query"
+                n: "minprice"
+                or: "minprice"
+                r: false
+                t: "`$NUMBER`"
+              }
+              {
+                k: "query"
+                n: "participant"
+                or: "participant"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "type"
+                or: "type"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/activity"
+          q: {
+            exist: [
+              "maxaccessibility"
+              "maxprice"
+              "minaccessibility"
+              "minprice"
+              "participant"
+              "type"
+            ]
+          }
+          s: [
+            {
+              lit: "activity"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "GET /activity/{key}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "key"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/activity/{key}"
+          q: {
+            exist: [
+              "id"
+            ]
+          }
+          r: {
+            param: {
+              key: "id"
+            }
+          }
+          s: [
+            {
+              lit: "activity"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

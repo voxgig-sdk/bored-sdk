@@ -11,19 +11,12 @@ const FEATURE_CLASS = {
     test: TestFeature_1.TestFeature,
     timeout: TimeoutFeature_1.TimeoutFeature,
 };
-// Per-feature plugin DEFINITIONS (voxgig/plugin `Definition` values), from
-// the model's active plugin groups. A feature that takes a `plugins` option
-// (secrets over sekreto) reads its own entry; a feature with no plugins has
-// none. Named imports above make each definition statically reachable, so
-// an SDK carries exactly the plugin modules its model selects — the same
-// leanness the old side-effect registry imports bought, without a registry.
 const FEATURE_PLUGINS = {};
 exports.FEATURE_PLUGINS = FEATURE_PLUGINS;
 class Config {
     makeFeature(fn) {
         const fc = FEATURE_CLASS[fn];
         const fi = new fc();
-        // TODO: errors etc
         return fi;
     }
     // False for a feature added at runtime via options.extend (station's
@@ -113,51 +106,59 @@ class Config {
         "activity": {
             "fields": [
                 {
-                    "format": "double",
                     "name": "accessibility",
+                    "title": "Accessibility",
+                    "type": "`$NUMBER`",
                     "req": true,
                     "short": "Accessibility factor between 0 and 1 (0 being most accessible)",
-                    "type": "`$NUMBER`"
+                    "format": "double"
                 },
                 {
                     "name": "activity",
+                    "title": "Activity",
+                    "type": "`$STRING`",
                     "req": true,
-                    "short": "Description of the activity",
-                    "type": "`$STRING`"
+                    "short": "Description of the activity"
                 },
                 {
                     "name": "id",
+                    "title": "Id",
                     "type": "`$STRING`"
                 },
                 {
                     "name": "key",
+                    "title": "Key",
+                    "type": "`$STRING`",
                     "req": true,
-                    "short": "Unique identifier for the activity",
-                    "type": "`$STRING`"
+                    "short": "Unique identifier for the activity"
                 },
                 {
                     "name": "link",
-                    "short": "URL link with more information about the activity (may be empty)",
-                    "type": "`$STRING`"
+                    "title": "Link",
+                    "type": "`$STRING`",
+                    "short": "URL link with more information about the activity (may be empty)"
                 },
                 {
                     "name": "participants",
+                    "title": "Participants",
+                    "type": "`$INTEGER`",
                     "req": true,
-                    "short": "Number of participants required",
-                    "type": "`$INTEGER`"
+                    "short": "Number of participants required"
                 },
                 {
-                    "format": "double",
                     "name": "price",
+                    "title": "Price",
+                    "type": "`$NUMBER`",
                     "req": true,
                     "short": "Price factor between 0 and 1 (0 being free)",
-                    "type": "`$NUMBER`"
+                    "format": "double"
                 },
                 {
                     "name": "type",
+                    "title": "Type",
+                    "type": "`$STRING`",
                     "req": true,
-                    "short": "Type of activity",
-                    "type": "`$STRING`"
+                    "short": "Type of activity"
                 }
             ],
             "id": {
@@ -171,46 +172,6 @@ class Config {
                     "name": "load",
                     "points": [
                         {
-                            "args": {
-                                "query": [
-                                    {
-                                        "kind": "query",
-                                        "name": "maxaccessibility",
-                                        "orig": "maxaccessibility",
-                                        "type": "`$NUMBER`"
-                                    },
-                                    {
-                                        "kind": "query",
-                                        "name": "maxprice",
-                                        "orig": "maxprice",
-                                        "type": "`$NUMBER`"
-                                    },
-                                    {
-                                        "kind": "query",
-                                        "name": "minaccessibility",
-                                        "orig": "minaccessibility",
-                                        "type": "`$NUMBER`"
-                                    },
-                                    {
-                                        "kind": "query",
-                                        "name": "minprice",
-                                        "orig": "minprice",
-                                        "type": "`$NUMBER`"
-                                    },
-                                    {
-                                        "kind": "query",
-                                        "name": "participant",
-                                        "orig": "participant",
-                                        "type": "`$INTEGER`"
-                                    },
-                                    {
-                                        "kind": "query",
-                                        "name": "type",
-                                        "orig": "type",
-                                        "type": "`$STRING`"
-                                    }
-                                ]
-                            },
                             "kind": "http",
                             "method": "GET",
                             "orig": "/activity",
@@ -219,6 +180,54 @@ class Config {
                                     "lit": "activity"
                                 }
                             ],
+                            "parts": [
+                                "activity"
+                            ],
+                            "rename": {},
+                            "transform": {
+                                "req": "`reqdata`",
+                                "res": "`body`"
+                            },
+                            "args": {
+                                "query": [
+                                    {
+                                        "name": "maxaccessibility",
+                                        "orig": "maxaccessibility",
+                                        "type": "`$NUMBER`",
+                                        "kind": "query"
+                                    },
+                                    {
+                                        "name": "maxprice",
+                                        "orig": "maxprice",
+                                        "type": "`$NUMBER`",
+                                        "kind": "query"
+                                    },
+                                    {
+                                        "name": "minaccessibility",
+                                        "orig": "minaccessibility",
+                                        "type": "`$NUMBER`",
+                                        "kind": "query"
+                                    },
+                                    {
+                                        "name": "minprice",
+                                        "orig": "minprice",
+                                        "type": "`$NUMBER`",
+                                        "kind": "query"
+                                    },
+                                    {
+                                        "name": "participant",
+                                        "orig": "participant",
+                                        "type": "`$INTEGER`",
+                                        "kind": "query"
+                                    },
+                                    {
+                                        "name": "type",
+                                        "orig": "type",
+                                        "type": "`$STRING`",
+                                        "kind": "query"
+                                    }
+                                ]
+                            },
                             "select": {
                                 "exist": [
                                     "maxaccessibility",
@@ -228,35 +237,12 @@ class Config {
                                     "participant",
                                     "type"
                                 ]
-                            },
-                            "transform": {
-                                "req": "`reqdata`",
-                                "res": "`body`"
-                            },
-                            "parts": [
-                                "activity"
-                            ]
+                            }
                         },
                         {
-                            "args": {
-                                "params": [
-                                    {
-                                        "kind": "param",
-                                        "name": "id",
-                                        "orig": "key",
-                                        "reqd": true,
-                                        "type": "`$STRING`"
-                                    }
-                                ]
-                            },
                             "kind": "http",
                             "method": "GET",
                             "orig": "/activity/{key}",
-                            "rename": {
-                                "param": {
-                                    "key": "id"
-                                }
-                            },
                             "segments": [
                                 {
                                     "lit": "activity"
@@ -265,19 +251,35 @@ class Config {
                                     "var": "id"
                                 }
                             ],
-                            "select": {
-                                "exist": [
-                                    "id"
-                                ]
+                            "parts": [
+                                "activity",
+                                "{id}"
+                            ],
+                            "rename": {
+                                "param": {
+                                    "key": "id"
+                                }
                             },
                             "transform": {
                                 "req": "`reqdata`",
                                 "res": "`body`"
                             },
-                            "parts": [
-                                "activity",
-                                "{id}"
-                            ]
+                            "args": {
+                                "params": [
+                                    {
+                                        "name": "id",
+                                        "orig": "key",
+                                        "type": "`$STRING`",
+                                        "kind": "param",
+                                        "reqd": true
+                                    }
+                                ]
+                            },
+                            "select": {
+                                "exist": [
+                                    "id"
+                                ]
+                            }
                         }
                     ]
                 }

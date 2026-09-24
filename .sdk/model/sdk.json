@@ -24,71 +24,145 @@
         "repr": "auto"
       },
       "contributor": {},
+      "doc": {
+        "active": true,
+        "assets": {
+          "path": ".sdk/doc/assets"
+        },
+        "brand": {
+          "label": "",
+          "notice": "",
+          "shortNotice": "",
+          "url": ""
+        },
+        "ci": {
+          "active": true,
+          "branch": "main"
+        },
+        "content": {
+          "path": ".sdk/doc/content"
+        },
+        "edition": {
+          "summary": {
+            "active": true,
+            "base": "node_modules/@voxgig/docgen/project/.sdk",
+            "brand": {},
+            "filter": {
+              "entities": [],
+              "features": [],
+              "targets": []
+            },
+            "kind": "summary",
+            "name": "summary",
+            "origname": "",
+            "output": {
+              "path": "SUMMARY.md"
+            },
+            "package": "@voxgig/docgen",
+            "published": false,
+            "site": {
+              "active": true
+            },
+            "style": {},
+            "title": ""
+          }
+        },
+        "qa": {
+          "vocabulary": []
+        },
+        "style": {
+          "color": {
+            "accent": "#00c6d8",
+            "background": "#f5f5f9",
+            "darkBackground": "#0f1117",
+            "darkText": "#e6edf3",
+            "primary": "#e70042",
+            "text": "#0a0a0a"
+          },
+          "font": "Nunito, system-ui, sans-serif",
+          "fontFile": "",
+          "headingFont": "Nunito, system-ui, sans-serif",
+          "headingFontFile": "",
+          "logo": "",
+          "mode": "light",
+          "mono": "ui-monospace, monospace",
+          "monoFile": ""
+        },
+        "target": {}
+      },
       "entity": {
         "activity": {
           "active": true,
           "alias": {
             "field": {}
           },
-          "fields": [
-            {
-              "active": true,
-              "format": "double",
-              "name": "accessibility",
-              "req": true,
-              "short": "Accessibility factor between 0 and 1 (0 being most accessible)",
-              "type": "`$NUMBER`"
+          "fields": {
+            "accessibility": {
+              "a": true,
+              "fo": "double",
+              "h": "Accessibility",
+              "n": "accessibility",
+              "r": true,
+              "sh": "Accessibility factor between 0 and 1 (0 being most accessible)",
+              "t": "`$NUMBER`"
             },
-            {
-              "active": true,
-              "name": "activity",
-              "req": true,
-              "short": "Description of the activity",
-              "type": "`$STRING`"
+            "activity": {
+              "a": true,
+              "h": "Activity",
+              "n": "activity",
+              "r": true,
+              "sh": "Description of the activity",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "id",
-              "req": false,
-              "type": "`$STRING`"
+            "id": {
+              "a": true,
+              "h": "Id",
+              "n": "id",
+              "r": false,
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "key",
-              "req": true,
-              "short": "Unique identifier for the activity",
-              "type": "`$STRING`"
+            "key": {
+              "a": true,
+              "h": "Key",
+              "n": "key",
+              "r": true,
+              "sh": "Unique identifier for the activity",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "link",
-              "req": false,
-              "short": "URL link with more information about the activity (may be empty)",
-              "type": "`$STRING`"
+            "link": {
+              "a": true,
+              "h": "Link",
+              "n": "link",
+              "r": false,
+              "sh": "URL link with more information about the activity (may be empty)",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "participants",
-              "req": true,
-              "short": "Number of participants required",
-              "type": "`$INTEGER`"
+            "participants": {
+              "a": true,
+              "h": "Participants",
+              "n": "participants",
+              "r": true,
+              "sh": "Number of participants required",
+              "t": "`$INTEGER`"
             },
-            {
-              "active": true,
-              "format": "double",
-              "name": "price",
-              "req": true,
-              "short": "Price factor between 0 and 1 (0 being free)",
-              "type": "`$NUMBER`"
+            "price": {
+              "a": true,
+              "fo": "double",
+              "h": "Price",
+              "n": "price",
+              "r": true,
+              "sh": "Price factor between 0 and 1 (0 being free)",
+              "t": "`$NUMBER`"
             },
-            {
-              "active": true,
-              "name": "type",
-              "req": true,
-              "short": "Type of activity",
-              "type": "`$STRING`"
+            "type": {
+              "a": true,
+              "h": "Type",
+              "n": "type",
+              "r": true,
+              "sh": "Type of activity",
+              "t": "`$STRING`"
             }
-          ],
+          },
           "id": {
             "field": "id",
             "name": "id"
@@ -100,74 +174,68 @@
               "name": "load",
               "points": [
                 {
-                  "active": true,
-                  "args": {
+                  "a": true,
+                  "co": {
+                    "id": "GET /activity",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
                     "query": [
                       {
-                        "active": true,
-                        "kind": "query",
-                        "name": "maxaccessibility",
-                        "orig": "maxaccessibility",
-                        "reqd": false,
-                        "type": "`$NUMBER`"
+                        "a": true,
+                        "k": "query",
+                        "n": "maxaccessibility",
+                        "or": "maxaccessibility",
+                        "r": false,
+                        "t": "`$NUMBER`"
                       },
                       {
-                        "active": true,
-                        "kind": "query",
-                        "name": "maxprice",
-                        "orig": "maxprice",
-                        "reqd": false,
-                        "type": "`$NUMBER`"
+                        "a": true,
+                        "k": "query",
+                        "n": "maxprice",
+                        "or": "maxprice",
+                        "r": false,
+                        "t": "`$NUMBER`"
                       },
                       {
-                        "active": true,
-                        "kind": "query",
-                        "name": "minaccessibility",
-                        "orig": "minaccessibility",
-                        "reqd": false,
-                        "type": "`$NUMBER`"
+                        "a": true,
+                        "k": "query",
+                        "n": "minaccessibility",
+                        "or": "minaccessibility",
+                        "r": false,
+                        "t": "`$NUMBER`"
                       },
                       {
-                        "active": true,
-                        "kind": "query",
-                        "name": "minprice",
-                        "orig": "minprice",
-                        "reqd": false,
-                        "type": "`$NUMBER`"
+                        "a": true,
+                        "k": "query",
+                        "n": "minprice",
+                        "or": "minprice",
+                        "r": false,
+                        "t": "`$NUMBER`"
                       },
                       {
-                        "active": true,
-                        "kind": "query",
-                        "name": "participant",
-                        "orig": "participant",
-                        "reqd": false,
-                        "type": "`$INTEGER`"
+                        "a": true,
+                        "k": "query",
+                        "n": "participant",
+                        "or": "participant",
+                        "r": false,
+                        "t": "`$INTEGER`"
                       },
                       {
-                        "active": true,
-                        "kind": "query",
-                        "name": "type",
-                        "orig": "type",
-                        "reqd": false,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "k": "query",
+                        "n": "type",
+                        "or": "type",
+                        "r": false,
+                        "t": "`$STRING`"
                       }
                     ]
                   },
-                  "contract": {
-                    "id": "GET /activity",
-                    "json": "{\"operationId\":\"getRandomActivity\",\"parameters\":[{\"description\":\"Type of activity (education, recreational, social, diy, charity, cooking, relaxation, music, busywork)\",\"in\":\"query\",\"name\":\"type\",\"required\":false,\"schema\":{\"enum\":[\"education\",\"recreational\",\"social\",\"diy\",\"charity\",\"cooking\",\"relaxation\",\"music\",\"busywork\"],\"type\":\"string\"}},{\"description\":\"Number of participants for the activity\",\"in\":\"query\",\"name\":\"participants\",\"required\":false,\"schema\":{\"minimum\":1,\"type\":\"integer\"}},{\"description\":\"Minimum price (0.0 to 1.0)\",\"in\":\"query\",\"name\":\"minprice\",\"required\":false,\"schema\":{\"format\":\"double\",\"maximum\":1,\"minimum\":0,\"type\":\"number\"}},{\"description\":\"Maximum price (0.0 to 1.0)\",\"in\":\"query\",\"name\":\"maxprice\",\"required\":false,\"schema\":{\"format\":\"double\",\"maximum\":1,\"minimum\":0,\"type\":\"number\"}},{\"description\":\"Minimum accessibility (0.0 to 1.0)\",\"in\":\"query\",\"name\":\"minaccessibility\",\"required\":false,\"schema\":{\"format\":\"double\",\"maximum\":1,\"minimum\":0,\"type\":\"number\"}},{\"description\":\"Maximum accessibility (0.0 to 1.0)\",\"in\":\"query\",\"name\":\"maxaccessibility\",\"required\":false,\"schema\":{\"format\":\"double\",\"maximum\":1,\"minimum\":0,\"type\":\"number\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"example\":{\"accessibility\":0.1,\"activity\":\"Learn how to french braid hair\",\"key\":\"4387026\",\"link\":\"\",\"participants\":1,\"price\":0,\"type\":\"education\"},\"schema\":{\"properties\":{\"accessibility\":{\"description\":\"Accessibility factor between 0 and 1 (0 being most accessible)\",\"format\":\"double\",\"type\":\"number\"},\"activity\":{\"description\":\"Description of the activity\",\"type\":\"string\"},\"key\":{\"description\":\"Unique identifier for the activity\",\"type\":\"string\"},\"link\":{\"description\":\"URL link with more information about the activity (may be empty)\",\"type\":\"string\"},\"participants\":{\"description\":\"Number of participants required\",\"type\":\"integer\"},\"price\":{\"description\":\"Price factor between 0 and 1 (0 being free)\",\"format\":\"double\",\"type\":\"number\"},\"type\":{\"description\":\"Type of activity\",\"enum\":[\"education\",\"recreational\",\"social\",\"diy\",\"charity\",\"cooking\",\"relaxation\",\"music\",\"busywork\"],\"type\":\"string\"}},\"required\":[\"activity\",\"type\",\"participants\",\"price\",\"key\",\"accessibility\"],\"type\":\"object\"}}},\"description\":\"Successfully returned a random activity\"},\"404\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"error\":{\"description\":\"Error message\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"No activity found with the specified parameters\"}},\"securitySource\":\"unspecified\"}",
-                    "source": "openapi3",
-                    "version": 1
-                  },
-                  "kind": "http",
-                  "method": "GET",
-                  "orig": "/activity",
-                  "segments": [
-                    {
-                      "lit": "activity"
-                    }
-                  ],
-                  "select": {
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/activity",
+                  "q": {
                     "exist": [
                       "maxaccessibility",
                       "maxprice",
@@ -177,40 +245,50 @@
                       "type"
                     ]
                   },
-                  "transform": {
+                  "r": {},
+                  "s": [
+                    {
+                      "lit": "activity"
+                    }
+                  ],
+                  "t": {
                     "req": "`reqdata`",
                     "res": "`body`"
                   }
                 },
                 {
-                  "active": true,
-                  "args": {
+                  "a": true,
+                  "co": {
+                    "id": "GET /activity/{key}",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
                     "params": [
                       {
-                        "active": true,
-                        "kind": "param",
-                        "name": "id",
-                        "orig": "key",
-                        "reqd": true,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "k": "param",
+                        "n": "id",
+                        "or": "key",
+                        "r": true,
+                        "t": "`$STRING`"
                       }
                     ]
                   },
-                  "contract": {
-                    "id": "GET /activity/{key}",
-                    "json": "{\"operationId\":\"getActivityByKey\",\"parameters\":[{\"description\":\"Unique key identifier for the activity\",\"in\":\"path\",\"name\":\"key\",\"required\":true,\"schema\":{\"type\":\"string\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"example\":{\"accessibility\":0.1,\"activity\":\"Learn how to french braid hair\",\"key\":\"4387026\",\"link\":\"\",\"participants\":1,\"price\":0,\"type\":\"education\"},\"schema\":{\"properties\":{\"accessibility\":{\"description\":\"Accessibility factor between 0 and 1 (0 being most accessible)\",\"format\":\"double\",\"type\":\"number\"},\"activity\":{\"description\":\"Description of the activity\",\"type\":\"string\"},\"key\":{\"description\":\"Unique identifier for the activity\",\"type\":\"string\"},\"link\":{\"description\":\"URL link with more information about the activity (may be empty)\",\"type\":\"string\"},\"participants\":{\"description\":\"Number of participants required\",\"type\":\"integer\"},\"price\":{\"description\":\"Price factor between 0 and 1 (0 being free)\",\"format\":\"double\",\"type\":\"number\"},\"type\":{\"description\":\"Type of activity\",\"enum\":[\"education\",\"recreational\",\"social\",\"diy\",\"charity\",\"cooking\",\"relaxation\",\"music\",\"busywork\"],\"type\":\"string\"}},\"required\":[\"activity\",\"type\",\"participants\",\"price\",\"key\",\"accessibility\"],\"type\":\"object\"}}},\"description\":\"Successfully returned the activity\"},\"404\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"error\":{\"description\":\"Error message\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Activity not found\"}},\"securitySource\":\"unspecified\"}",
-                    "source": "openapi3",
-                    "version": 1
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/activity/{key}",
+                  "q": {
+                    "exist": [
+                      "id"
+                    ]
                   },
-                  "kind": "http",
-                  "method": "GET",
-                  "orig": "/activity/{key}",
-                  "rename": {
+                  "r": {
                     "param": {
                       "key": "id"
                     }
                   },
-                  "segments": [
+                  "s": [
                     {
                       "lit": "activity"
                     },
@@ -218,12 +296,7 @@
                       "var": "id"
                     }
                   ],
-                  "select": {
-                    "exist": [
-                      "id"
-                    ]
-                  },
-                  "transform": {
+                  "t": {
                     "req": "`reqdata`",
                     "res": "`body`"
                   }
@@ -652,19 +725,19 @@
           "param": {},
           "step": [
             {
-              "active": true,
-              "data": {},
-              "input": {
+              "a": true,
+              "d": {},
+              "i": {
                 "ref": "activity_ref01",
                 "srcdatavar": "activity_ref01_data",
                 "suffix": "_dt0"
               },
-              "match": {
+              "m": {
                 "id": "activity01"
               },
-              "op": "load",
-              "spec": [],
-              "valid": [
+              "o": "load",
+              "s": [],
+              "v": [
                 {
                   "apply": "TextFieldMark",
                   "def": {

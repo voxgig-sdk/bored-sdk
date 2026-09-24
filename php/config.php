@@ -112,51 +112,59 @@ class BoredConfig
         'activity' => [
           'fields' => [
             [
-              'format' => 'double',
               'name' => 'accessibility',
+              'title' => 'Accessibility',
+              'type' => '`$NUMBER`',
               'req' => true,
               'short' => 'Accessibility factor between 0 and 1 (0 being most accessible)',
-              'type' => '`$NUMBER`',
+              'format' => 'double',
             ],
             [
               'name' => 'activity',
+              'title' => 'Activity',
+              'type' => '`$STRING`',
               'req' => true,
               'short' => 'Description of the activity',
-              'type' => '`$STRING`',
             ],
             [
               'name' => 'id',
+              'title' => 'Id',
               'type' => '`$STRING`',
             ],
             [
               'name' => 'key',
+              'title' => 'Key',
+              'type' => '`$STRING`',
               'req' => true,
               'short' => 'Unique identifier for the activity',
-              'type' => '`$STRING`',
             ],
             [
               'name' => 'link',
-              'short' => 'URL link with more information about the activity (may be empty)',
+              'title' => 'Link',
               'type' => '`$STRING`',
+              'short' => 'URL link with more information about the activity (may be empty)',
             ],
             [
               'name' => 'participants',
+              'title' => 'Participants',
+              'type' => '`$INTEGER`',
               'req' => true,
               'short' => 'Number of participants required',
-              'type' => '`$INTEGER`',
             ],
             [
-              'format' => 'double',
               'name' => 'price',
+              'title' => 'Price',
+              'type' => '`$NUMBER`',
               'req' => true,
               'short' => 'Price factor between 0 and 1 (0 being free)',
-              'type' => '`$NUMBER`',
+              'format' => 'double',
             ],
             [
               'name' => 'type',
+              'title' => 'Type',
+              'type' => '`$STRING`',
               'req' => true,
               'short' => 'Type of activity',
-              'type' => '`$STRING`',
             ],
           ],
           'id' => [
@@ -170,52 +178,60 @@ class BoredConfig
               'name' => 'load',
               'points' => [
                 [
-                  'args' => [
-                    'query' => [
-                      [
-                        'kind' => 'query',
-                        'name' => 'maxaccessibility',
-                        'orig' => 'maxaccessibility',
-                        'type' => '`$NUMBER`',
-                      ],
-                      [
-                        'kind' => 'query',
-                        'name' => 'maxprice',
-                        'orig' => 'maxprice',
-                        'type' => '`$NUMBER`',
-                      ],
-                      [
-                        'kind' => 'query',
-                        'name' => 'minaccessibility',
-                        'orig' => 'minaccessibility',
-                        'type' => '`$NUMBER`',
-                      ],
-                      [
-                        'kind' => 'query',
-                        'name' => 'minprice',
-                        'orig' => 'minprice',
-                        'type' => '`$NUMBER`',
-                      ],
-                      [
-                        'kind' => 'query',
-                        'name' => 'participant',
-                        'orig' => 'participant',
-                        'type' => '`$INTEGER`',
-                      ],
-                      [
-                        'kind' => 'query',
-                        'name' => 'type',
-                        'orig' => 'type',
-                        'type' => '`$STRING`',
-                      ],
-                    ],
-                  ],
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/activity',
                   'segments' => [
                     [
                       'lit' => 'activity',
+                    ],
+                  ],
+                  'parts' => [
+                    'activity',
+                  ],
+                  'rename' => [],
+                  'transform' => [
+                    'req' => '`reqdata`',
+                    'res' => '`body`',
+                  ],
+                  'args' => [
+                    'query' => [
+                      [
+                        'name' => 'maxaccessibility',
+                        'orig' => 'maxaccessibility',
+                        'type' => '`$NUMBER`',
+                        'kind' => 'query',
+                      ],
+                      [
+                        'name' => 'maxprice',
+                        'orig' => 'maxprice',
+                        'type' => '`$NUMBER`',
+                        'kind' => 'query',
+                      ],
+                      [
+                        'name' => 'minaccessibility',
+                        'orig' => 'minaccessibility',
+                        'type' => '`$NUMBER`',
+                        'kind' => 'query',
+                      ],
+                      [
+                        'name' => 'minprice',
+                        'orig' => 'minprice',
+                        'type' => '`$NUMBER`',
+                        'kind' => 'query',
+                      ],
+                      [
+                        'name' => 'participant',
+                        'orig' => 'participant',
+                        'type' => '`$INTEGER`',
+                        'kind' => 'query',
+                      ],
+                      [
+                        'name' => 'type',
+                        'orig' => 'type',
+                        'type' => '`$STRING`',
+                        'kind' => 'query',
+                      ],
                     ],
                   ],
                   'select' => [
@@ -228,34 +244,11 @@ class BoredConfig
                       'type',
                     ],
                   ],
-                  'transform' => [
-                    'req' => '`reqdata`',
-                    'res' => '`body`',
-                  ],
-                  'parts' => [
-                    'activity',
-                  ],
                 ],
                 [
-                  'args' => [
-                    'params' => [
-                      [
-                        'kind' => 'param',
-                        'name' => 'id',
-                        'orig' => 'key',
-                        'reqd' => true,
-                        'type' => '`$STRING`',
-                      ],
-                    ],
-                  ],
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/activity/{key}',
-                  'rename' => [
-                    'param' => [
-                      'key' => 'id',
-                    ],
-                  ],
                   'segments' => [
                     [
                       'lit' => 'activity',
@@ -264,18 +257,34 @@ class BoredConfig
                       'var' => 'id',
                     ],
                   ],
-                  'select' => [
-                    'exist' => [
-                      'id',
+                  'parts' => [
+                    'activity',
+                    '{id}',
+                  ],
+                  'rename' => [
+                    'param' => [
+                      'key' => 'id',
                     ],
                   ],
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body`',
                   ],
-                  'parts' => [
-                    'activity',
-                    '{id}',
+                  'args' => [
+                    'params' => [
+                      [
+                        'name' => 'id',
+                        'orig' => 'key',
+                        'type' => '`$STRING`',
+                        'kind' => 'param',
+                        'reqd' => true,
+                      ],
+                    ],
+                  ],
+                  'select' => [
+                    'exist' => [
+                      'id',
+                    ],
                   ],
                 ],
               ],

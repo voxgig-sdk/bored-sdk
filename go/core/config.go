@@ -90,51 +90,59 @@ func MakeConfig() map[string]any {
 			"activity": map[string]any{
 				"fields": []any{
 					map[string]any{
-						"format": "double",
 						"name": "accessibility",
+						"title": "Accessibility",
+						"type": "`$NUMBER`",
 						"req": true,
 						"short": "Accessibility factor between 0 and 1 (0 being most accessible)",
-						"type": "`$NUMBER`",
+						"format": "double",
 					},
 					map[string]any{
 						"name": "activity",
+						"title": "Activity",
+						"type": "`$STRING`",
 						"req": true,
 						"short": "Description of the activity",
-						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "id",
+						"title": "Id",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "key",
+						"title": "Key",
+						"type": "`$STRING`",
 						"req": true,
 						"short": "Unique identifier for the activity",
-						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "link",
-						"short": "URL link with more information about the activity (may be empty)",
+						"title": "Link",
 						"type": "`$STRING`",
+						"short": "URL link with more information about the activity (may be empty)",
 					},
 					map[string]any{
 						"name": "participants",
+						"title": "Participants",
+						"type": "`$INTEGER`",
 						"req": true,
 						"short": "Number of participants required",
-						"type": "`$INTEGER`",
 					},
 					map[string]any{
-						"format": "double",
 						"name": "price",
+						"title": "Price",
+						"type": "`$NUMBER`",
 						"req": true,
 						"short": "Price factor between 0 and 1 (0 being free)",
-						"type": "`$NUMBER`",
+						"format": "double",
 					},
 					map[string]any{
 						"name": "type",
+						"title": "Type",
+						"type": "`$STRING`",
 						"req": true,
 						"short": "Type of activity",
-						"type": "`$STRING`",
 					},
 				},
 				"id": map[string]any{
@@ -148,52 +156,60 @@ func MakeConfig() map[string]any {
 						"name": "load",
 						"points": []any{
 							map[string]any{
-								"args": map[string]any{
-									"query": []any{
-										map[string]any{
-											"kind": "query",
-											"name": "maxaccessibility",
-											"orig": "maxaccessibility",
-											"type": "`$NUMBER`",
-										},
-										map[string]any{
-											"kind": "query",
-											"name": "maxprice",
-											"orig": "maxprice",
-											"type": "`$NUMBER`",
-										},
-										map[string]any{
-											"kind": "query",
-											"name": "minaccessibility",
-											"orig": "minaccessibility",
-											"type": "`$NUMBER`",
-										},
-										map[string]any{
-											"kind": "query",
-											"name": "minprice",
-											"orig": "minprice",
-											"type": "`$NUMBER`",
-										},
-										map[string]any{
-											"kind": "query",
-											"name": "participant",
-											"orig": "participant",
-											"type": "`$INTEGER`",
-										},
-										map[string]any{
-											"kind": "query",
-											"name": "type",
-											"orig": "type",
-											"type": "`$STRING`",
-										},
-									},
-								},
 								"kind": "http",
 								"method": "GET",
 								"orig": "/activity",
 								"segments": []any{
 									map[string]any{
 										"lit": "activity",
+									},
+								},
+								"parts": []any{
+									"activity",
+								},
+								"rename": map[string]any{},
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body`",
+								},
+								"args": map[string]any{
+									"query": []any{
+										map[string]any{
+											"name": "maxaccessibility",
+											"orig": "maxaccessibility",
+											"type": "`$NUMBER`",
+											"kind": "query",
+										},
+										map[string]any{
+											"name": "maxprice",
+											"orig": "maxprice",
+											"type": "`$NUMBER`",
+											"kind": "query",
+										},
+										map[string]any{
+											"name": "minaccessibility",
+											"orig": "minaccessibility",
+											"type": "`$NUMBER`",
+											"kind": "query",
+										},
+										map[string]any{
+											"name": "minprice",
+											"orig": "minprice",
+											"type": "`$NUMBER`",
+											"kind": "query",
+										},
+										map[string]any{
+											"name": "participant",
+											"orig": "participant",
+											"type": "`$INTEGER`",
+											"kind": "query",
+										},
+										map[string]any{
+											"name": "type",
+											"orig": "type",
+											"type": "`$STRING`",
+											"kind": "query",
+										},
 									},
 								},
 								"select": map[string]any{
@@ -206,34 +222,11 @@ func MakeConfig() map[string]any {
 										"type",
 									},
 								},
-								"transform": map[string]any{
-									"req": "`reqdata`",
-									"res": "`body`",
-								},
-								"parts": []any{
-									"activity",
-								},
 							},
 							map[string]any{
-								"args": map[string]any{
-									"params": []any{
-										map[string]any{
-											"kind": "param",
-											"name": "id",
-											"orig": "key",
-											"reqd": true,
-											"type": "`$STRING`",
-										},
-									},
-								},
 								"kind": "http",
 								"method": "GET",
 								"orig": "/activity/{key}",
-								"rename": map[string]any{
-									"param": map[string]any{
-										"key": "id",
-									},
-								},
 								"segments": []any{
 									map[string]any{
 										"lit": "activity",
@@ -242,18 +235,34 @@ func MakeConfig() map[string]any {
 										"var": "id",
 									},
 								},
-								"select": map[string]any{
-									"exist": []any{
-										"id",
+								"parts": []any{
+									"activity",
+									"{id}",
+								},
+								"rename": map[string]any{
+									"param": map[string]any{
+										"key": "id",
 									},
 								},
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body`",
 								},
-								"parts": []any{
-									"activity",
-									"{id}",
+								"args": map[string]any{
+									"params": []any{
+										map[string]any{
+											"name": "id",
+											"orig": "key",
+											"type": "`$STRING`",
+											"kind": "param",
+											"reqd": true,
+										},
+									},
+								},
+								"select": map[string]any{
+									"exist": []any{
+										"id",
+									},
 								},
 							},
 						},

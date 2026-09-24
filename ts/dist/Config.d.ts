@@ -75,29 +75,33 @@ declare class Config {
     entity: {
         activity: {
             fields: ({
+                name: string;
+                title: string;
+                type: string;
+                req: boolean;
+                short: string;
                 format: string;
-                name: string;
-                req: boolean;
-                short: string;
-                type: string;
             } | {
                 name: string;
+                title: string;
+                type: string;
                 req: boolean;
                 short: string;
-                type: string;
                 format?: undefined;
             } | {
                 name: string;
+                title: string;
                 type: string;
-                format?: undefined;
                 req?: undefined;
                 short?: undefined;
+                format?: undefined;
             } | {
                 name: string;
-                short: string;
+                title: string;
                 type: string;
-                format?: undefined;
+                short: string;
                 req?: undefined;
+                format?: undefined;
             })[];
             id: {
                 field: string;
@@ -109,49 +113,36 @@ declare class Config {
                     input: string;
                     name: string;
                     points: ({
-                        args: {
-                            query: {
-                                kind: string;
-                                name: string;
-                                orig: string;
-                                type: string;
-                            }[];
-                            params?: undefined;
-                        };
                         kind: string;
                         method: string;
                         orig: string;
                         segments: {
                             lit: string;
                         }[];
-                        select: {
-                            exist: string[];
+                        parts: string[];
+                        rename: {
+                            param?: undefined;
                         };
                         transform: {
                             req: string;
                             res: string;
                         };
-                        parts: string[];
-                        rename?: undefined;
-                    } | {
                         args: {
-                            params: {
-                                kind: string;
+                            query: {
                                 name: string;
                                 orig: string;
-                                reqd: boolean;
                                 type: string;
+                                kind: string;
                             }[];
-                            query?: undefined;
+                            params?: undefined;
                         };
+                        select: {
+                            exist: string[];
+                        };
+                    } | {
                         kind: string;
                         method: string;
                         orig: string;
-                        rename: {
-                            param: {
-                                key: string;
-                            };
-                        };
                         segments: ({
                             lit: string;
                             var?: undefined;
@@ -159,14 +150,29 @@ declare class Config {
                             var: string;
                             lit?: undefined;
                         })[];
-                        select: {
-                            exist: string[];
+                        parts: string[];
+                        rename: {
+                            param: {
+                                key: string;
+                            };
                         };
                         transform: {
                             req: string;
                             res: string;
                         };
-                        parts: string[];
+                        args: {
+                            params: {
+                                name: string;
+                                orig: string;
+                                type: string;
+                                kind: string;
+                                reqd: boolean;
+                            }[];
+                            query?: undefined;
+                        };
+                        select: {
+                            exist: string[];
+                        };
                     })[];
                 };
             };
